@@ -10,18 +10,23 @@
     <header>
         <div class="logo__div">Paulson's<span class="primary">Legacy</span></div>
         <nav>
-            <div><a href="#">Home</a></div>
-            <div><a href="#">About</a></div>
-            <div><a href="#">Portfolio</a></div>
-            <div><a href="#"><button>Contact</button></a></div>
-            <div class="open__menu"><i class="fa fa-bars"></i></div>
-            <div class="close__menu"><i class="fa fa-times"></i></div>
+            <div><a href="#intro">Home</a></div>
+            <div><a href="#services">Service</a></div>
+            <div><a href="#portfolio">Portfolio</a></div>
+            <div><a href="#about">About</a></div>
         </nav>
+        <div class="menu__icon"><i class="fa fa-bars fa-2x"></i></div>
+        <div class="nav__list">
+            <div><a href="#intro">Home</a></div>
+            <div><a href="#services">Service</a></div>
+            <div><a href="#portfolio">Portfolio</a></div>
+            <div><a href="#about">About</a></div>
+        </div>
     </header>
 
     <main>
-        <section class="about__section">
-            <div class="about__me">
+        <section class="intro__section" id="intro">
+            <div class="intro__me">
                 <h3 class="occupation">I'm Software Developer</h3>
                 <h1 class="name">Paulson Bosah</h1>
                 <p class="description">Hello! I'm a passionate web developer with a love for creating dynamic and responsive web applications.</p>
@@ -31,15 +36,15 @@
                     <img src="https://skillicons.dev/icons?i=php,laravel,python,django,mysql" />
                 </div>
             </div>
-            <div class="about__image">
-                <img src="assets/images/paulson(2518x2000).jpg" alt="">
+            <div class="intro__image">
+                <img src="assets/images/banner(800×800).jpg" alt="">
             </div>
         </section>
 
-        <section class="services__section">
+        <section class="services__section" id="services">
             <div class="title">
                 <h1 class="title__heading">Get Quality Services</h1>
-                <p class="title__body">Services span over various sectors</p>
+                <p class="title__body">Services span over various sectors in tech</p>
             </div>
 
             <div class="services__grid">
@@ -58,7 +63,7 @@
             </div>
         </section>
 
-        <section class="portfolio__section">
+        <section class="portfolio__section" id="portfolio">
             <div class="title">
                 <h1 class="title__heading">Portfolio</h1>
                 <p class="title__body">Services span over various sectors</p>
@@ -92,7 +97,46 @@
             </div>
         </section>
 
-        <section class="quote__section">
+        <section class="about__section" id="about">
+            <div class="title">
+                <h1 class="title__heading">About Me</h1>
+                <p class="title__body">My Infos and personality</p>
+            </div>
+            <div class="about__content">
+                <div class="about__image">
+                    <img src="assets/images/paulson(2518x2000).jpg" width="100%" alt="">
+                </div>
+                <div class="about__me">
+                    <h4><span>Full Name:</span> <span>Paulson Bosah</span></h4>
+                    <h5><span>Slack ID:</span> <span>Paulson'sLegacy</span></h5>
+                    <h5><span>Email:</span> <span>paulsonbosah@gmail.com</span></h5>
+                    <h5><span>Phone:</span> <span>+234 916 075 5152</span></h5>
+                    <p><span id="today">Friday</span> <span id="date">1/02/2024</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="goals__section" id="goals">
+            <div class="title">
+                <h1 class="title__heading">Future Goals</h1>
+                <p class="title__body">Where I see myself in nearest future</p>
+            </div>
+            <div class="goal__content">                
+                My experience spans various web development tools, but I'm most drawn to backend
+                technologies. I'm comfortable with Python and Django, which I believe will serve me well in my
+                goal to become a skilled backend engineer.<br><br>
+
+                I also have some experience with machine learning,
+                which I think complements my backend skills nicely.
+                While I'm familiar with frontend tools like HTML, CSS, and JavaScript, my heart lies in backend
+                development. I'm currently expanding my knowledge by taking courses in Networking, Linux,
+                and AWS to strengthen my backend capabilities.<br><br>
+                
+                I see myself as complete and competent Backend Software Engineer in the closest future.
+            </div>
+        </section>
+
+        <section class="quote__section" id="quote">
             <div class="container">
                 <div class="quote_container">
                     <div class="quote__text">
@@ -124,5 +168,6 @@
     </footer>
 
     <script src="assets/js/all.min.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
