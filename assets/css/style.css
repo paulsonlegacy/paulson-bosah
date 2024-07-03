@@ -27,6 +27,7 @@ body {
     font-size: 1.5rem;
     font-family: sans-serif;
     overflow-x: hidden;
+    overflow-y: scroll;
     font-size: 1.4rem;
 }
 
@@ -128,11 +129,12 @@ nav {
 .nav__list {
     display: inline-block;
     position: absolute;
-    right: -50rem;
+    right: -100rem;  /* visible - 2rem, hidden - -50rem*/
     top: 6.5rem;
     background: var(--light-dark);
     color: var(--light);
     padding: 2rem 2rem;
+    z-index: 99;
 }
 
 .nav__list div {
@@ -162,7 +164,7 @@ nav {
     background:linear-gradient(135deg,
     #333333dc 0%,
     #1a1a1adc) 100%,
-    url('../images/1500x500.png') center no-repeat fixed;
+    url('../images/laravel(1500x500).png') center no-repeat fixed;
     background-size: cover;
     color: var(--light);
     display: flex;
@@ -177,16 +179,16 @@ nav {
 }
 
 .intro__me .occupation {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: var(--primary-color);
 }
 
 .intro__me .name {
-    font-size: 5rem;
+    font-size: 3rem;
 }
 
 .intro__me .description {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     color: var(--dim-light);
     line-height: 1.6;
     margin-right: 2rem;
@@ -362,6 +364,10 @@ nav {
     gap: 1.5rem;
 }
 
+.about__me .ex__link a {
+    color: var(--primary-color);
+}
+
 
 
 /* GOAL SECTION */
@@ -385,7 +391,7 @@ nav {
     background:linear-gradient(135deg,
     #33333394 0%,
     #1a1a1a94) 100%,
-    url('../images/1500x500.png') center no-repeat fixed;
+    url('../images/laravel(1500x500).png') center no-repeat fixed;
     background-size: cover;
     position: relative;
 }

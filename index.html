@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Paulson Bosah">
+    <meta name="description" content="I'm a passionate web developer with a love for creating dynamic and responsive web applications.">
+    <meta name="keywords" content="programmer,software developer,web designer,web developer,backend developer,graphic designer,data analyst,python,django,javascript,php,laravel">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Welcome | Paulson's Portfolio</title>
 </head>
 <body>
     <header>
-        <div class="logo__div">Paulson's<span class="primary">Legacy</span></div>
+        <div class="logo__div">Paulson<span class="primary">Bosah</span></div>
         <nav>
             <div><a href="#intro">Home</a></div>
             <div><a href="#services">Service</a></div>
@@ -27,8 +30,8 @@
     <main>
         <section class="intro__section" id="intro">
             <div class="intro__me">
-                <h3 class="occupation">I'm Software Developer</h3>
-                <h1 class="name">Paulson Bosah</h1>
+                <h4 class="occupation">I'm Software Developer</h4>
+                <h2 class="name">Paulson Bosah</h2>
                 <p class="description">Hello! I'm a passionate web developer with a love for creating dynamic and responsive web applications.</p>
                 <div class="skills">
                     <img src="https://skillicons.dev/icons?i=photoshop,git,github,vscode,postman" />
@@ -65,34 +68,43 @@
 
         <section class="portfolio__section" id="portfolio">
             <div class="title">
-                <h1 class="title__heading">Portfolio</h1>
+                <h1 class="title__heading">Portfolio Projects</h1>
                 <p class="title__body">Services span over various sectors</p>
             </div>
             
             <div class="portfolio__item">
                 <img src="assets/images/agrohub(1280x800).png" alt="Project 1">
                 <div class="portfolio__details">
-                    <h3>Project 1</h3>
-                    <p>This project involved developing a responsive e-commerce website using React and Node.js. The goal was to create a seamless shopping experience for users.</p>
-                    <a href="https://link-to-project1.com" target="_blank">View Project</a>
+                    <h3>AgroHub</h3>
+                    <p>This is a multivendor web-based application built to connect farmers directly to consumers by uploading their farm produce.</p>
+                    <a href="https://github.com/legacywebhub/multi-vendor-ecom-site" target="_blank">View Project</a>
+                </div>
+            </div>
+
+            <div class="portfolio__item">
+                <img src="assets/images/school_portal(1280×800).png" alt="Project 3">
+                <div class="portfolio__details">
+                    <h3>School Portal</h3>
+                    <p>A vanilla PHP based E-learning and Distance learning system combined into a university based portal</p>
+                    <a href="https://github.com/legacywebhub/php-university-portal" target="_blank">View Project</a>
                 </div>
             </div>
     
             <div class="portfolio__item">
-                <img src="assets/images/agrohub(1280x800).png" alt="Project 2">
+                <img src="assets/images/php_banking_project(1280x800).png" alt="Project 2">
                 <div class="portfolio__details">
-                    <h3>Project 2</h3>
-                    <p>A modern portfolio website designed with HTML, CSS, and JavaScript to showcase the client's work and attract potential clients.</p>
-                    <a href="https://link-to-project2.com" target="_blank">View Project</a>
+                    <h3>PHP Fintech</h3>
+                    <p>A pseudo banking application built on vanilla PHP, Javascript, Ajax, HTML and CSS. This project is built to simulate real world banking and fintech applications</p>
+                    <a href="https://github.com/legacywebhub/php-banking" target="_blank">View Project</a>
                 </div>
             </div>
     
             <div class="portfolio__item">
-                <img src="assets/images/agrohub(1280x800).png" alt="Project 3">
+                <img src="assets/images/adex_carshop(1280×800).png" alt="Project 3">
                 <div class="portfolio__details">
-                    <h3>Project 3</h3>
-                    <p>This project was focused on creating an interactive blog platform using Django, allowing users to publish, edit, and comment on articles.</p>
-                    <a href="https://link-to-project3.com" target="_blank">View Project</a>
+                    <h3>Adex Carshop</h3>
+                    <p>Automobile sales, repair and management system</p>
+                    <a href="https://github.com/legacywebhub/phpcarhub" target="_blank">View Project</a>
                 </div>
             </div>
         </section>
@@ -104,14 +116,23 @@
             </div>
             <div class="about__content">
                 <div class="about__image">
-                    <img src="assets/images/paulson(2518x2000).jpg" width="100%" alt="">
+                    <img src="assets/images/paulson(2518x2000).jpg" width="100%" data-testid="slackProfilePicture">
                 </div>
                 <div class="about__me">
                     <h4><span>Full Name:</span> <span>Paulson Bosah</span></h4>
-                    <h5><span>Slack ID:</span> <span>Paulson'sLegacy</span></h5>
-                    <h5><span>Email:</span> <span>paulsonbosah@gmail.com</span></h5>
+                    <h5><span>Slack ID:</span> <span data-testid="slackDisplayName">Paulson'sLegacy</span></h5>
+                    <h5><span>Email:</span> <span data-testid="slackEmail">paulsonbosah@gmail.com</span></h5>
                     <h5><span>Phone:</span> <span>+234 916 075 5152</span></h5>
-                    <p><span id="today">Friday</span> <span id="date">1/02/2024</span></p>
+                    <p><span id="today" data-testid="currentDay">Friday</span> <span id="time__utc" data-testid="currentTimeUTC">1/02/2024</span></p>
+                    <p class="ex__link">
+                        <a data-testid="hngLink" href="https://hng.tech/learn" target="_blank">https://hng.tech/learn</a>
+                    </p>
+                    <p class="ex__link">
+                        <a data-testid="keywordLink" href="https://keyword.dog/" target="_blank">https://keyword.dog/</a>
+                    </p>
+                    <p class="ex__link">
+                        <a data-testid="scrapeanywebLink" href="https://scrapeanyweb.site/" target="_blank">https://scrapeanyweb.site/</a>
+                    </p>
                 </div>
             </div>
         </section>
@@ -155,10 +176,18 @@
 
     <footer class="footer">
         <div class="footer__links">
-            <a href=""><i class="fab fa-github-square fa-2x"></i></a>
-            <a href=""><i class="fab fa-linkedin fa-2x"></i></a>
-            <a href=""><i class="fab fa-twitter-square fa-2x"></i></a>
-            <a href=""><i class="fab fa-whatsapp-square fa-2x"></i></a>
+            <a href="https://github.com/legacywebhub/" target="_blank">
+                <i class="fab fa-github-square fa-2x"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/paulson-bosah" target="_blank">
+                <i class="fab fa-linkedin fa-2x"></i>
+            </a>
+            <a href="https://x.com/paulson_bosah/" target="_blank">
+                <i class="fab fa-twitter-square fa-2x"></i>
+            </a>
+            <a href="https://wa.link/5iy3zb" target="_blank">
+                <i class="fab fa-whatsapp-square fa-2x"></i>
+            </a>
         </div>
         <div class="contact__info">
             <p><span>Email:</span> <a href="mailto:paulsonbosah@gmail.com">paulsonbosah@gmail.com</a></p>

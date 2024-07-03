@@ -1,19 +1,22 @@
 // FUNCTIONS
 
+// Function to fetch current day
 function getCurrentDay() {
     const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     const now = new Date();
     return daysOfWeek[now.getDay()];
 }
 
-function getCurrentDate() {
+// Function to get current time in UTC
+function getCurrentTimeUTC() {
     const now = new Date();
-    const day = now.getDate();
-    const month = now.getMonth() + 1; // Months are zero-indexed
-    const year = now.getFullYear();
-    return `${day} July ${year}`;
+    const hours = String(now.getUTCHours()).padStart(2, '0');
+    const minutes = String(now.getUTCMinutes()).padStart(2, '0');
+    const seconds = String(now.getUTCSeconds()).padStart(2, '0');
+    return `${hours}:${minutes}:${seconds} UTC`;
 }
 
+// Function to check availability of an element of given class name
 function hasChildWithClass(parentElement, className) {
     return parentElement.querySelector(`.${className}`) !== null;
 }
@@ -30,23 +33,24 @@ let menu = document.querySelector(".menu__icon"),
 // Event Listener for menu toggling
 menu.addEventListener("click", ()=>{
     if (hasChildWithClass(menu, 'fa-times')) {
-        responsiveNavList.style.right = "-1000rem";
+        responsiveNavList.style.right = "-100rem";
         menu.innerHTML = `<i class="fa fa-bars fa-2x"></i>`;
     } else if (hasChildWithClass(menu, 'fa-bars')) {
-        responsiveNavList.style.right = "-50rem";
+        responsiveNavList.style.right = "2rem";
         menu.innerHTML = `<i class="fa fa-times fa-2x"></i>`;
     }
 });
 
 // Event Listener for clicking outside the menu to close it
 document.getElementsByTagName("main")[0].addEventListener("click", (event) => {
-    if (responsiveNavList.style.right === "-50rem" && !menu.contains(event.target)) {
-        responsiveNavList.style.right = "-1000rem";
+    if (hasChildWithClass(menu, 'fa-times')) {
+        responsiveNavList.style.right = "-100rem";
         menu.innerHTML = `<i class="fa fa-bars fa-2x"></i>`;
     }
 });
 
 
+// CODE
 
 document.querySelector('#today').textContent = getCurrentDay();
-document.querySelector('#date').textContent = getCurrentDate();
+document.querySelector('#time__utc').textContent = getCurrentTimeUTC();
