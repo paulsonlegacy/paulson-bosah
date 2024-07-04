@@ -51,6 +51,11 @@ button {
     color: var(--primary-color);
 }
 
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
 
 
 /* COMMON ELEMENTS */
@@ -129,12 +134,14 @@ nav {
 .nav__list {
     display: inline-block;
     position: absolute;
-    right: -100rem;  /* visible - 2rem, hidden - -50rem*/
+    right: 2rem;  /* visible - 2rem, hidden - -50rem*/
     top: 6.5rem;
     background: var(--light-dark);
     color: var(--light);
     padding: 2rem 2rem;
     z-index: 99;
+    visibility: hidden;
+    transition: visibility .1s;
 }
 
 .nav__list div {
@@ -506,6 +513,79 @@ nav {
     .footer {
         padding: 2rem 0;
     }
+}
+
+
+
+/* POPUP SECTION */
+
+#popup__container {
+    background: var(--dark-dark);
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+    transition: opacity .3s;
+}
+
+#popup {
+    margin-top: 3rem;
+    max-width: 80vw;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    overflow: auto;
+}
+
+#close__popup {
+    color: var(--primary-color);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+.popup__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3rem;
+}
+
+.popup__info img, .popup__info video {
+    width: 100%;
+}
+
+.popup__info__error {
+    margin: 2rem auto;
+    text-align: center;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.popup__animation {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading__gif {
+    width: 3rem;
+}
+
+.sorry__gif {
+    width: 15rem;
 }
 
 
