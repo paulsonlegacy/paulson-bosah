@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
 *, *::after, *::before {
     padding: 0;
     margin: 0;
@@ -11,12 +13,14 @@ html {
 }
 
 :root {
-    --primary-color: #ff6347;
+    --primary-color: #33ff33;
+    --backup-primary-color: #ff6347;
     --light-dark: #333333;
     --dark-dark: #1a1a1a;
     --dim-light: #fafafa;
     --faded-light: #aaaaaa;
     --light: #ffffff;
+    --max-width: 120rem;
 }
 
 body {
@@ -25,7 +29,7 @@ body {
     background: var(--dark-dark) !important;
     color: var(--dim-light) !important;
     font-size: 1.5rem;
-    font-family: sans-serif;
+    font-family: 'Share Tech Mono', monospace, sans-serif;
     overflow-x: hidden;
     overflow-y: scroll;
     font-size: 1.4rem;
@@ -42,7 +46,7 @@ button {
 
 .container {
     width: 100%;
-    max-width: 98rem;
+    max-width: var(--max-width);
     margin: 0rem auto;
     padding: 0rem 1.5rem;
 }
@@ -63,7 +67,6 @@ button {
 .title {
     text-align: center;
     margin-bottom: 5rem;
-    font-family: sans-serif;
     position: relative;
 }
 
@@ -154,8 +157,8 @@ nav {
     position: absolute;
     top: -0.5rem;
     right: 1rem;
-    width: 10px;
-    height: 10px;
+    width: 1rem;
+    height: 1rem;
     transform: rotate(45deg);
     border-left: 0;
     background-color: var(--light-dark);
@@ -194,6 +197,27 @@ nav {
     font-size: 3rem;
 }
 
+.intro__me .name span {
+    display: inline-block;
+    animation: rollingFade 2s infinite;
+}
+
+@keyframes rollingFade {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Apply delay to each letter */
+.rolling-text span:nth-child(1) { animation-delay: 0s; }
+.rolling-text span:nth-child(2) { animation-delay: 0.1s; }
+.rolling-text span:nth-child(3) { animation-delay: 0.2s; }
+.rolling-text span:nth-child(4) { animation-delay: 0.3s; }
+.rolling-text span:nth-child(5) { animation-delay: 0.4s; }
+.rolling-text span:nth-child(6) { animation-delay: 0.5s; }
+.rolling-text span:nth-child(7) { animation-delay: 0.6s; }
+.rolling-text span:nth-child(8) { animation-delay: 0.7s; }
+.rolling-text span:nth-child(9) { animation-delay: 0.8s; }
+
 .intro__me .description {
     font-size: 1.5rem;
     color: var(--dim-light);
@@ -226,6 +250,236 @@ nav {
 @media (max-width: 42rem) {
     .intro__section {
         padding: 2rem 1rem;
+    }
+}
+
+
+
+/* ABOUT SECTION */
+
+.about__section {
+    padding: 5rem;
+    max-width: var(--max-width);
+    margin: 3rem auto;
+}
+
+.about__section .about__div {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.about__section .profile__pic {
+    display: none;
+}
+
+.about__section .profile__pic img {
+    width: 30rem;
+    height: 45rem;
+    border: .3rem solid var(--primary-color);
+    border-radius: 1rem;
+    box-shadow: 0 0 .8rem var(--primary-color);
+}
+
+.about__section h1 {
+    color: var(--primary-color);
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+.about__section  p {
+    margin: 1rem 0rem;
+    font-size: 2.5rem;
+    line-height: 1.5;
+}
+
+/* Glitch effect */
+.about__section .glitch {
+    position: relative;
+    display: inline-block;
+    color: var(--primary-color);
+    text-shadow: .2rem .2rem 0 #0a0a0a, -.2rem -.2rem 0 var(--primary-color);
+    animation: glitch 0.5s infinite alternate;
+}
+
+@keyframes glitch {
+    0% { text-shadow: .2rem .2rem 0 #0a0a0a, -.2rem -.2rem 0 var(--light); }
+    100% { text-shadow: -.2rem -.2rem 0 #0a0a0a, .2rem .2rem 0 var(--backup-primary-color); }
+}
+
+
+
+/* CERTIFICATION SECTION */
+
+.certifications__section {
+    /* text-align: center; */
+    padding: 3rem;
+    margin: 0rem auto;
+}
+
+.certifications__section h1 {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+/* Responsive flexbox container */
+.certifications__section .certs__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+/* Certificate cards */
+.certifications__section .cert__card {
+    background-color: #111;
+    width: 32rem; /* Uniform width */
+    min-height: 36rem; /* Ensures equal height */
+    border-radius: .8rem;
+    box-shadow: 0 .4rem 1rem rgba(51, 255, 51, 0.2);
+    padding: 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease-in-out;
+}
+
+.certifications__section .cert__card:hover {
+    transform: scale(1.05);
+}
+
+/* Certificate image styling */
+.certifications__section .cert__card img {
+    width: 100%;
+    height: 18rem;
+    object-fit: cover;
+    border-radius: .6rem;
+    cursor: pointer;
+}
+
+/* Cards without images */
+.certifications__section .no__image {
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 1.6rem;
+    color: var(--primary-color);
+}
+
+/* Headings inside cards */
+.certifications__section .cert__card h2 {
+    font-size: 1.8rem;
+    margin: 1.5rem 0 .5rem;
+}
+
+.certifications__section .cert__card h2 a {
+    color: var(--primary-color);
+}
+
+.certifications__section .cert__card p {
+    font-size: 1.4rem;
+    opacity: 0.8;
+}
+
+
+
+/* PORTFOLIO SECTION */
+
+.portfolio__section {
+    max-width: var(--max-width);
+    margin: 3rem auto;
+    padding: 2rem;
+}
+
+.portfolio__section .portfolio__title {
+    color: var(--primary-color);
+    font-size: 2.6rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Portfolio Item */
+.portfolio__section .portfolio__item {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    padding: 1.5rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.portfolio__section .portfolio__item:hover {
+    transform: scale(1.02);
+}
+
+/* Portfolio Image */
+.portfolio__section .portfolio__item img {
+    width: 18rem;
+    height: 12rem;
+    object-fit: cover;
+    border-radius: .6rem;
+    cursor: pointer;
+}
+
+/* Text Content */
+.portfolio__section .portfolio__content {
+    flex: 1;
+}
+
+.portfolio__section .portfolio__content h2 {
+    font-size: 2rem;
+    margin-bottom: .8rem;
+}
+
+.portfolio__section .portfolio__content p {
+    font-size: 1.4rem;
+    opacity: 0.8;
+    margin-bottom: 1rem;
+}
+
+/* Links */
+.portfolio__section .portfolio__links {
+    display: flex;
+    gap: 3rem;
+}
+
+.portfolio__section .portfolio__links a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: opacity 0.3s;
+}
+
+.portfolio__section .portfolio__links a:hover {
+    opacity: 0.7;
+}
+
+/* Handling projects without images */
+.portfolio__section .no__image {
+    display: flex;
+    justify-content: flex-start;
+}
+
+/* Responsive Design */
+@media (max-width: 60rem) {
+    .portfolio__section .portfolio__item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .portfolio__section .portfolio__item img {
+        width: 100%;
+        height: auto;
+    }
+
+    .portfolio__section .portfolio__links {
+        justify-content: center;
     }
 }
 
@@ -279,100 +533,6 @@ nav {
     .service__item {
         width: 100%;
     }
-}
-
-
-
-/* PORTFOLIO SECTION */
-
-.portfolio__section {
-    padding: 5rem;
-    max-width: 120rem;
-    margin: auto;
-}
-
-.portfolio__item {
-    background-color: var(--light-dark);
-    color: var(--dim-light);
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 2rem;
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: 0 .4rem .8rem rgba(0, 0, 0, 0.1);
-}
-
-.portfolio__item img {
-    width: 30rem;
-    height: 20rem;
-    border-radius: 1rem;
-    margin-right: 2rem;
-}
-
-.portfolio__details {
-    flex: 1;
-}
-
-.portfolio__details h3 {
-    font-size: 1.5rem;
-    margin: 0;
-}
-
-.portfolio__details p {
-    font-size: 1.4rem;
-    margin: 10px 0;
-}
-
-.portfolio__details a {
-    color: #007BFF;
-    text-decoration: none;
-    font-style: italic;
-    font-size: 1.3rem;
-}
-
-.portfolio__details a:hover {
-    text-decoration: underline;
-}
-
-@media (max-width: 62rem) {
-    .portfolio__section {
-        padding: 5rem 2rem;
-    }
-
-    .portfolio__item {
-        width: 100%;
-    }
-
-    .portfolio__item img {
-        margin-right: 0rem;
-        width: 100%;
-    }
-
-    .portfolio__details {
-        margin-top: 2rem;
-    }
-}
-
-
-
-/* ABOUT SECTION */
-
-.about__section {
-    padding: 5rem;
-    margin: auto auto;
-}
-
-.about__me {
-    margin: 2rem auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-}
-
-.about__me .ex__link a {
-    color: var(--primary-color);
 }
 
 
@@ -599,5 +759,19 @@ nav {
 
     .menu__icon {
         display: inline-block;
+    }
+
+    
+    .about__section .about__div {
+        flex-direction: column;
+        gap: 4rem;
+    }
+
+    .about__section h1 {
+        font-size: 2.2rem;
+    }
+    
+    .about__section  p {
+        font-size: 1.8rem;
     }
 }

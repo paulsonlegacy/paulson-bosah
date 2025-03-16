@@ -3,6 +3,7 @@
 const menu = document.querySelector(".menu__icon"),
     responsiveNavList = document.querySelector(".nav__list"),
     portfolioImages = document.querySelectorAll('.portfolio__item img'),
+    certImages = document.querySelectorAll('.cert__card img')
     closePopupBtn = document.querySelector('#close__popup'),
     popupContainer = document.querySelector('#popup__container');
   
@@ -94,7 +95,7 @@ portfolioImages.forEach((portfolioImage)=>{
 
         // Extracting info from this portfolio
         const portfolio = {
-            'name': portfolioDiv.querySelector('h3').textContent,
+            'name': portfolioDiv.querySelector('h2').textContent,
             'description': portfolioDiv.querySelector('p').textContent,
             'image': portfolioDiv.querySelector('img').src
         };
@@ -104,10 +105,26 @@ portfolioImages.forEach((portfolioImage)=>{
     })
 });
 
+certImages.forEach((certImage)=>{
+    certImage.addEventListener('click', (e)=>{
+
+        // Getting parent element of ckicked image
+        const certDiv = certImage.parentElement;  // Can also use e.target.parentElement
+
+        // Extracting info from this cert
+        const cert = {
+            'name': certDiv.querySelector('h2').textContent,
+            'description': certDiv.querySelector('p').textContent,
+            'image': certDiv.querySelector('img').src
+        };
+
+        // Displaying popup
+        displayPortfolio(cert);
+    })
+});
+
 // Event Listener to close popup
 closePopupBtn.addEventListener('click', ()=>{
-    console.log('Close button clicked');
-
     // Hide popup
     popupContainer.classList.add('hidden');
 })
@@ -116,5 +133,5 @@ closePopupBtn.addEventListener('click', ()=>{
 
 // CODE
 
-document.querySelector('#today').textContent = getCurrentDay();
-document.querySelector('#time__utc').textContent = getCurrentTimeUTC();
+//document.querySelector('#today').textContent = getCurrentDay();
+//document.querySelector('#time__utc').textContent = getCurrentTimeUTC();
