@@ -50,7 +50,7 @@ async function displayPortfolio(portfolio) {
             // Generate DOM
             popupInfoContainer.innerHTML = `
                 <h4>${portfolio.name}</h4>
-                <img src="${portfolio.image}" alt="">
+                <img src="${portfolio.image}" class="popup__image" alt="">
                 <p>${portfolio.description}</p>
             `
         } catch {
