@@ -15,6 +15,8 @@ html {
 :root {
     --primary-color: #33ff33;
     --backup-primary-color: #ff6347;
+    --secondary-color: #1abc9c;
+    --dark-secondary-color: #16a085;
     --light-dark: #333333;
     --dark-dark: #1a1a1a;
     --dim-light: #fafafa;
@@ -28,11 +30,10 @@ body {
     width: 100vw !important;
     background: var(--dark-dark) !important;
     color: var(--dim-light) !important;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-family: 'Share Tech Mono', monospace, sans-serif;
     overflow-x: hidden;
     overflow-y: scroll;
-    font-size: 1.4rem;
 }
 
 button {
@@ -67,24 +68,17 @@ button {
 .title {
     margin-bottom: 2rem;
     color: var(--primary-color);
-    font-size: 3rem;
     font-weight: bold;
     position: relative;
     text-align: center;
 }
 
 .title__heading{
-    font-size: 2rem;
-    text-transform: uppercase;
-    letter-spacing: .3rem;
-    margin: .3rem 0rem;
+    font-size: 3rem;
 }
 
 .title__body{
-    font-size: 1.3rem;
-    letter-spacing: .3rem;
-    text-transform: lowercase;
-    color: var(--primary-color);
+    font-size: 2.5rem;
 }
 
 
@@ -92,9 +86,9 @@ button {
 /*   HEADER SECTION */ 
 
 header {
-    font-weight: bold;
+    font-weight: medium;
     width: 100vw;
-    padding: 2rem;
+    padding: 2rem 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -179,12 +173,11 @@ nav {
 }
 
 .intro__me .occupation {
-    font-size: 1.5rem;
     color: var(--primary-color);
 }
 
 .intro__me .name {
-    font-size: 3rem;
+    font-size: 2.5rem;
 }
 
 .intro__me .name span {
@@ -209,7 +202,6 @@ nav {
 .rolling-text span:nth-child(9) { animation-delay: 0.8s; }
 
 .intro__me .description {
-    font-size: 1.5rem;
     color: var(--dim-light);
     line-height: 1.6;
     margin-right: 2rem;
@@ -315,13 +307,6 @@ nav {
     margin: 0rem auto;
 }
 
-.certifications__section h1 {
-    text-align: center;
-    color: var(--primary-color);
-    font-size: 3rem;
-    margin-bottom: 2rem;
-}
-
 /* Responsive flexbox container */
 .certifications__section .certs__container {
     display: flex;
@@ -366,23 +351,23 @@ nav {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    font-size: 1.6rem;
     color: var(--primary-color);
 }
 
 /* Headings inside cards */
 .certifications__section .cert__card h2 {
-    font-size: 1.8rem;
     margin: 1.5rem 0 .5rem;
 }
 
 .certifications__section .cert__card h2 a {
+    font-size: 2rem;
+    text-transform: capitalize;
     color: var(--primary-color);
 }
 
 .certifications__section .cert__card p {
-    font-size: 1.4rem;
-    opacity: 0.8;
+    font-size: 1.5rem;
+    opacity: 0.6;
 }
 
 
@@ -393,13 +378,6 @@ nav {
     max-width: var(--max-width);
     margin: 3rem auto;
     padding: 2rem;
-}
-
-.portfolio__section .portfolio__title {
-    color: var(--primary-color);
-    font-size: 2.6rem;
-    text-align: center;
-    margin-bottom: 2rem;
 }
 
 /* Portfolio Item */
@@ -418,8 +396,8 @@ nav {
 
 /* Portfolio Image */
 .portfolio__section .portfolio__item img {
-    width: 18rem;
-    height: 12rem;
+    width: 22rem;
+    height: 16rem;
     object-fit: cover;
     border-radius: .6rem;
     cursor: pointer;
@@ -431,12 +409,10 @@ nav {
 }
 
 .portfolio__section .portfolio__content h2 {
-    font-size: 2rem;
     margin-bottom: .8rem;
 }
 
 .portfolio__section .portfolio__content p {
-    font-size: 1.4rem;
     opacity: 0.8;
     margin-bottom: 1rem;
 }
@@ -450,6 +426,7 @@ nav {
 .portfolio__section .portfolio__links a {
     color: var(--primary-color);
     text-decoration: none;
+    font-size: 1.8rem;
     font-weight: bold;
     transition: opacity 0.3s;
 }
@@ -489,7 +466,7 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px 20px;
+    padding: 4rem 2rem;
 }
 
 .blog__post {
@@ -498,11 +475,11 @@ nav {
     align-items: center;
     background-color: #222;
     width: 90%;
-    max-width: 700px;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+    max-width: var(--max-width);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: .8rem;
+    box-shadow: 0 .4rem .6rem rgba(255, 255, 255, 0.1);
     transition: transform 0.3s ease-in-out;
 }
 
@@ -512,30 +489,29 @@ nav {
 
 .blog__post img {
     width: 100%;
-    max-height: 200px;
+    max-height: 20rem;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: .8rem;
 }
 
 .blog__content {
     text-align: center;
-    margin-top: 15px;
+    margin-top: 1.5rem;
 }
 
-.blog__content h2 {
-    font-size: 1.6em;
-    color: #1abc9c;
+.blog__content h3 {
+    text-transform: capitalize;
+    color: var(--secondary-color);
 }
 
 .blog__content p {
-    font-size: 1em;
     color: #ccc;
 }
 
 .read-more {
     display: inline-block;
-    margin-top: 10px;
-    color: #1abc9c;
+    margin-top: 1rem;
+    color: var(--secondary-color);
     text-decoration: none;
     font-weight: bold;
 }
@@ -546,16 +522,99 @@ nav {
 
 
 
+/* TESTIMONIAL SECTION */
 
-/* GOAL SECTION */
-
-.goals__section {
+.testimonial__section {
+    text-align: center;
     padding: 5rem 2rem;
 }
 
-.goal__content {
-    line-height: 3rem;
-    letter-spacing: .2rem;
+/* Testimonial Wrapper */
+.testimonial__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-width: 80rem;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Testimonial Container (For Scroll Effect) */
+.testimonial__container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+/* Testimonial Item */
+.testimonial {
+    padding: 2rem 10rem;
+    background: #222;
+    border-radius: 1rem;
+    box-shadow: 0 .4rem .6rem rgba(255, 255, 255, 0.1);
+    min-width: 100%;
+    text-align: left;
+    transition: transform 0.3s ease-in-out;
+}
+
+.testimonial .quote {
+    font-style: italic;
+}
+
+/* Author Info */
+.testimonial .author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.testimonial .author img {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: .2rem solid var(--secondary-color);
+}
+
+.testimonial .author span {
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+/* Navigation Buttons */
+.prev__btn, .next__btn {
+    background: var(--secondary-color);
+    border: none;
+    color: #111;
+    font-size: 2.4rem;
+    cursor: pointer;
+    padding: 1rem 1.5rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+}
+
+.prev__btn:hover, .next__btn:hover {
+    background: var(--dark-secondary-color);
+}
+
+.prev__btn { left: 1rem; }
+.next__btn { right: 1rem; }
+
+/* Responsive */
+@media (max-width: 62rem) {
+    .testimonial {
+        padding: 1.5rem;
+    }
+    .author img {
+        width: 4rem;
+        height: 4rem;
+    }
 }
 
 
@@ -599,7 +658,6 @@ nav {
 }
 
 .quote__text p {
-    font-size: 1.5rem;
     font-style: italic;
     font-weight: bold;
     flex-grow: 2;
@@ -675,7 +733,7 @@ nav {
 
 .footer p.copyright {
     margin-top: .2rem;
-    font-size: 1rem;
+    font-size: 1.5rem;
     color: var(--faded-light);
 }
 
@@ -778,14 +836,7 @@ nav {
     
     .about__section .about__div {
         flex-direction: column;
+        align-items: center;
         gap: 4rem;
-    }
-
-    .about__section h1 {
-        font-size: 2.2rem;
-    }
-    
-    .about__section  p {
-        font-size: 1.8rem;
     }
 }

@@ -135,3 +135,37 @@ closePopupBtn.addEventListener('click', ()=>{
 
 //document.querySelector('#today').textContent = getCurrentDay();
 //document.querySelector('#time__utc').textContent = getCurrentTimeUTC();
+
+
+
+// TESTIMONIAL SECTION SCRIPT
+
+const container = document.querySelector(".testimonial__container");
+const prevBtn = document.querySelector(".prev__btn");
+const nextBtn = document.querySelector(".next__btn");
+
+let index = 0;
+const totalItems = document.querySelectorAll(".testimonial").length;
+
+// Function to update slide position
+function updateSlide() {
+    container.style.transform = `translateX(-${index * 100}%)`;
+}
+
+// Next Button
+nextBtn.addEventListener("click", () => {
+    index = (index + 1) % totalItems;
+    updateSlide();
+});
+
+// Previous Button
+prevBtn.addEventListener("click", () => {
+    index = (index - 1 + totalItems) % totalItems;
+    updateSlide();
+});
+
+// Auto-scroll every 5 seconds
+setInterval(() => {
+    index = (index + 1) % totalItems;
+    updateSlide();
+}, 5000);
