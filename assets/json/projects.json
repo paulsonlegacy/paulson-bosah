@@ -1,29 +1,22 @@
 [
     {
-        "title": "API Management System",
-        "description": "Built a REST API management system for handling user authentication, rate limiting, and data processing. System handles 10k+ requests daily with 99.9% uptime.",
-        "tech": ["Django", "PostgreSQL", "Redis", "Celery"],
-        "image": null,
+        "title": "Conexia - Python STUN Library",
+        "description": "A Python library for resolving network information via STUN servers, and designed for seamless integration with backend frameworks.",
+        "tech": ["Python"],
+        "image": "assets/images/conexia.png",
         "video": null,
-        "github": "https://github.com/yourusername/project1",
-        "demo": null
+        "github": "https://github.com/paulsonlegacy/conexia",
+        "demo": "https://pypi.org/project/conexia/",
+        "detailPage": null
     },
     {
         "title": "E-commerce Backend",
-        "description": "Developed complete backend for an e-commerce platform including payment integration, inventory management, order processing, and real-time notifications.",
+        "description": "Developed complete backend for an e-commerce platform including payment integration, inventory management, order processing.",
         "tech": ["Golang", "GoFiber", "MySQL", "Stripe"],
         "image": "images/ecommerce.jpg",
         "video": null,
         "github": "https://github.com/yourusername/project2",
-        "demo": "https://demo.example.com"
-    },
-    {
-        "title": "Video Demo Project",
-        "description": "A project with video demonstration instead of screenshot.",
-        "tech": ["Python", "FastAPI", "MongoDB"],
-        "image": null,
-        "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-        "github": "https://github.com/yourusername/project3",
-        "demo": null
+        "demo": "https://demo.example.com",
+        "detailPage": "projects/ecommerce-backend.html"
     }
 ]

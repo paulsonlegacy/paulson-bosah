@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Blog post about building scalable APIs with Django">
-    <title>5 Lessons From Building APIs That Handle 10k+ Requests Daily | Your Name</title>
+    <title>5 Lessons From Building APIs That Handle 10k+ Requests Daily | Paulson Bosah</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,7 +22,7 @@
     <!-- Header -->
     <header class="header">
         <div class="header__container">
-            <a href="../index.html" class="header__logo">$ <span>yourname</span></a>
+            <a href="index.html" class="header__logo">$ <span>Paulson Bosah</span></a>
             <nav class="nav">
                 <ul class="nav__list" id="navList">
                     <li><a href="../index.html#about" class="nav__link">about</a></li>
@@ -120,28 +120,32 @@
                             <span class="code__example__title">rate_limiter.py</span>
                             <span class="code__example__lang">Python</span>
                         </div>
-                        <pre><code>from functools import wraps
-from flask import request, jsonify
-import redis
+                        <pre>
+                            <code>
+                                from functools import wraps
+                                from flask import request, jsonify
+                                import redis
 
-redis_client = redis.Redis()
+                                redis_client = redis.Redis()
 
-def rate_limit(max_requests=100, window=60):
-    def decorator(f):
-        @wraps(f)
-        def wrapped(*args, **kwargs):
-            key = f"rate_limit:{request.remote_addr}"
-            count = redis_client.incr(key)
-            
-            if count == 1:
-                redis_client.expire(key, window)
-            
-            if count > max_requests:
-                return jsonify({"error": "Rate limit exceeded"}), 429
-            
-            return f(*args, **kwargs)
-        return wrapped
-    return decorator</code></pre>
+                                def rate_limit(max_requests=100, window=60):
+                                    def decorator(f):
+                                        @wraps(f)
+                                        def wrapped(*args, **kwargs):
+                                            key = f"rate_limit:{request.remote_addr}"
+                                            count = redis_client.incr(key)
+                                            
+                                            if count == 1:
+                                                redis_client.expire(key, window)
+                                            
+                                            if count > max_requests:
+                                                return jsonify({"error": "Rate limit exceeded"}), 429
+                                            
+                                            return f(*args, **kwargs)
+                                        return wrapped
+                                    return decorator
+                            </code>
+                    </pre>
                     </div>
 
                     <div class="callout">
@@ -331,14 +335,17 @@ def rate_limit(max_requests=100, window=60):
         <div class="footer__container">
             <p class="footer__text">© 2025 Paulson Bosah. Built with pure 💙.</p>
             <div class="footer__links">
-                <a href="https://github.com/yourusername" class="footer__link" target="_blank">
+                <a href="https://github.com/paulsonlegacy" class="footer__link" target="_blank">
                     <i data-lucide="github" width="20" height="20"></i>
                 </a>
-                <a href="https://linkedin.com/in/yourusername" class="footer__link" target="_blank">
+                <a href="https://www.linkedin.com/in/paulson-bosah" class="footer__link" target="_blank">
                     <i data-lucide="linkedin" width="20" height="20"></i>
                 </a>
-                <a href="https://twitter.com/yourusername" class="footer__link" target="_blank">
+                <a href="https://x.com/paulsonlegacy" class="footer__link" target="_blank">
                     <i data-lucide="twitter" width="20" height="20"></i>
+                </a>
+                <a href="https://wa.link/5iy3zb" class="footer__link" target="_blank">
+                    <i data-lucide="phone" width="20" height="20"></i>
                 </a>
             </div>
         </div>
