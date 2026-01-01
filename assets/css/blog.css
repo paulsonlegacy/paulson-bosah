@@ -1,0 +1,227 @@
+.blog__hero {
+    padding: 3rem 0;
+}
+
+.blog__header {
+    max-width: 700px;
+    margin: 0 auto 3rem;
+}
+
+.blog__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+
+.blog__meta {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.blog__content {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 3rem 0;
+}
+
+.blog__content h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.blog__content h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+.blog__content p {
+    color: var(--text-secondary);
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+}
+
+.blog__content ul,
+.blog__content ol {
+    color: var(--text-secondary);
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+.blog__content li {
+    margin-bottom: 0.75rem;
+}
+
+.blog__content strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.blog__content em {
+    color: var(--accent);
+    font-style: normal;
+}
+
+.blog__content blockquote {
+    border-left: 4px solid var(--accent);
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+.blog__content a {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+.blog__content a:hover {
+    color: var(--accent-dim);
+}
+
+.callout {
+    background: var(--bg-secondary);
+    border-left: 4px solid var(--accent);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 0 4px 4px 0;
+}
+
+.callout__title {
+    font-family: 'Ubuntu Mono', monospace;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+}
+
+.callout p:last-child {
+    margin-bottom: 0;
+}
+
+.code__example {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    overflow-x: auto;
+}
+
+.code__example__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.code__example__title {
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.code__example__lang {
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+}
+
+.blog__footer {
+    max-width: 700px;
+    margin: 3rem auto 0;
+    padding-top: 3rem;
+    border-top: 1px solid var(--border);
+}
+
+.blog__share {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.blog__share__title {
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.blog__share__links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.share__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.share__link:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.blog__cta {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.blog__cta h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+.blog__cta p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .blog__title {
+        font-size: 2rem;
+    }
+
+    .blog__meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .blog__content h2 {
+        font-size: 1.5rem;
+    }
+
+    .blog__content h3 {
+        font-size: 1.2rem;
+    }
+}

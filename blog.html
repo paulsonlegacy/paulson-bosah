@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog post about building scalable APIs with Django">
+    <title>5 Lessons From Building APIs That Handle 10k+ Requests Daily | Your Name</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/blog.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header__container">
+            <a href="../index.html" class="header__logo">$ <span>yourname</span></a>
+            <nav class="nav">
+                <ul class="nav__list" id="navList">
+                    <li><a href="../index.html#about" class="nav__link">about</a></li>
+                    <li><a href="../index.html#skills" class="nav__link">skills</a></li>
+                    <li><a href="../index.html#projects" class="nav__link">projects</a></li>
+                    <li><a href="../index.html#contact" class="nav__link">contact</a></li>
+                </ul>
+            </nav>
+            <button class="nav__toggle" id="navToggle">
+                <i data-lucide="menu" width="24" height="24"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Blog Hero -->
+        <section class="blog__hero">
+            <div class="container">
+                <a href="../index.html#projects" class="back__link">
+                    <i data-lucide="arrow-left" width="18" height="18"></i>
+                    Back to home
+                </a>
+                
+                <div class="blog__header">
+                    <h1 class="blog__title">5 Lessons From Building APIs That Handle 10k+ Requests Daily</h1>
+                    
+                    <div class="blog__meta">
+                        <div class="meta__item">
+                            <i data-lucide="calendar" width="16" height="16"></i>
+                            <span>December 15, 2024</span>
+                        </div>
+                        <div class="meta__item">
+                            <i data-lucide="clock" width="16" height="16"></i>
+                            <span>8 min read</span>
+                        </div>
+                        <div class="meta__item">
+                            <i data-lucide="tag" width="16" height="16"></i>
+                            <span>Backend Development</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Content -->
+        <section class="blog__content">
+            <div class="container">
+                <article>
+                    <p>
+                        I recently shipped an API management system that now processes over 10,000 requests every single day. Along the way, I made mistakes, learned lessons, and discovered some truths about backend development that nobody really talks about.
+                    </p>
+
+                    <p>
+                        Here's what I wish someone had told me before I started.
+                    </p>
+
+                    <h2>1. Your Database Will Betray You (Eventually)</h2>
+
+                    <p>
+                        When I first deployed my API, everything was smooth. Response times were under 100ms, the database was humming along nicely, and I felt like a genius.
+                    </p>
+
+                    <p>
+                        Then traffic doubled. Then tripled. Suddenly, queries that took 50ms were taking 500ms. Users were complaining. I was panicking.
+                    </p>
+
+                    <p>
+                        <strong>The problem?</strong> I hadn't indexed my database properly. I was doing joins on unindexed columns. Classic rookie mistake.
+                    </p>
+
+                    <div class="callout">
+                        <div class="callout__title">💡 LESSON</div>
+                        <p>
+                            Add database indexes BEFORE you have performance problems, not after. Use <code>EXPLAIN ANALYZE</code> on your most frequent queries during development. Your future self will thank you.
+                        </p>
+                    </div>
+
+                    <p>
+                        After adding proper indexes and implementing query optimization, response times dropped from 500ms back down to under 50ms. The difference was night and day.
+                    </p>
+
+                    <h2>2. Rate Limiting Is Not Optional</h2>
+
+                    <p>
+                        I learned this the hard way. Two weeks after launch, someone (probably accidentally) wrote a script that hit my API 1,000 times per second. My server crashed. Hard.
+                    </p>
+
+                    <p>
+                        I had to implement emergency rate limiting at 2 AM while the system was down. Not fun.
+                    </p>
+
+                    <div class="code__example">
+                        <div class="code__example__header">
+                            <span class="code__example__title">rate_limiter.py</span>
+                            <span class="code__example__lang">Python</span>
+                        </div>
+                        <pre><code>from functools import wraps
+from flask import request, jsonify
+import redis
+
+redis_client = redis.Redis()
+
+def rate_limit(max_requests=100, window=60):
+    def decorator(f):
+        @wraps(f)
+        def wrapped(*args, **kwargs):
+            key = f"rate_limit:{request.remote_addr}"
+            count = redis_client.incr(key)
+            
+            if count == 1:
+                redis_client.expire(key, window)
+            
+            if count > max_requests:
+                return jsonify({"error": "Rate limit exceeded"}), 429
+            
+            return f(*args, **kwargs)
+        return wrapped
+    return decorator</code></pre>
+                    </div>
+
+                    <div class="callout">
+                        <div class="callout__title">💡 LESSON</div>
+                        <p>
+                            Implement rate limiting from day one. Don't wait until someone abuses your API. Use Redis for distributed rate limiting if you're running multiple servers.
+                        </p>
+                    </div>
+
+                    <h2>3. Authentication Is Harder Than You Think</h2>
+
+                    <p>
+                        I initially implemented a simple JWT authentication system. It worked. Until users started complaining that they were being logged out constantly.
+                    </p>
+
+                    <p>
+                        The issue? I set access tokens to expire after 15 minutes for "security." But I didn't implement refresh tokens. So users had to log in again every 15 minutes. Terrible UX.
+                    </p>
+
+                    <p>
+                        <strong>The fix:</strong> Implement a dual-token system:
+                    </p>
+
+                    <ul>
+                        <li><strong>Access tokens</strong> - Short-lived (15 minutes), used for API requests</li>
+                        <li><strong>Refresh tokens</strong> - Long-lived (7 days), used to get new access tokens</li>
+                    </ul>
+
+                    <p>
+                        This way, users stay logged in for days while maintaining security. If an access token is stolen, it's only valid for 15 minutes. If a refresh token is stolen, you can revoke it server-side.
+                    </p>
+
+                    <div class="callout">
+                        <div class="callout__title">💡 LESSON</div>
+                        <p>
+                            Security and user experience don't have to be enemies. Implement refresh tokens. Store them securely (httpOnly cookies on the web). Make token refresh automatic and transparent to users.
+                        </p>
+                    </div>
+
+                    <h2>4. Logging Saves Lives (And Debugging Time)</h2>
+
+                    <p>
+                        Early on, when something went wrong, I had no idea what happened. Was it a database error? A network timeout? A bug in my code? I was debugging blind.
+                    </p>
+
+                    <p>
+                        Then I implemented proper logging. Every request. Every error. Every database query. Suddenly, debugging went from hours to minutes.
+                    </p>
+
+                    <p>
+                        Here's what I log for every API request:
+                    </p>
+
+                    <ul>
+                        <li>Request method and endpoint</li>
+                        <li>User ID (if authenticated)</li>
+                        <li>Request parameters and body (sanitized)</li>
+                        <li>Response status code</li>
+                        <li>Response time</li>
+                        <li>Any errors or warnings</li>
+                    </ul>
+
+                    <blockquote>
+                        "You can't fix what you can't see. Log everything. You'll thank yourself later when you're debugging a production issue at 3 AM."
+                    </blockquote>
+
+                    <div class="callout">
+                        <div class="callout__title">💡 LESSON</div>
+                        <p>
+                            Implement structured logging from day one. Use log levels appropriately (DEBUG, INFO, WARNING, ERROR). Store logs somewhere searchable (not just text files). I use a simple PostgreSQL table—works great for my scale.
+                        </p>
+                    </div>
+
+                    <h2>5. Documentation Is Your Best Investment</h2>
+
+                    <p>
+                        I'll be honest—I hate writing documentation. It's boring. It takes time. I'd rather be coding.
+                    </p>
+
+                    <p>
+                        But you know what's more boring? Answering the same questions 50 times. Explaining how to use your API over email. Walking new developers through your codebase for the 10th time.
+                    </p>
+
+                    <p>
+                        I spent one weekend writing comprehensive documentation for my API:
+                    </p>
+
+                    <ul>
+                        <li>Setup instructions</li>
+                        <li>Authentication flow</li>
+                        <li>Every endpoint with request/response examples</li>
+                        <li>Error codes and what they mean</li>
+                        <li>Rate limiting rules</li>
+                        <li>Code examples in Python, JavaScript, and cURL</li>
+                    </ul>
+
+                    <p>
+                        The result? Support requests dropped by 80%. New developers could onboard themselves. I saved hours every week.
+                    </p>
+
+                    <div class="callout">
+                        <div class="callout__title">💡 LESSON</div>
+                        <p>
+                            Good documentation is a force multiplier. It scales you. Spend one weekend writing docs, save hundreds of hours answering questions. Use tools like Swagger/OpenAPI to auto-generate API docs from your code.
+                        </p>
+                    </div>
+
+                    <h2>Bonus Lesson: Perfection Is The Enemy Of Shipping</h2>
+
+                    <p>
+                        I spent weeks optimizing my API before launch. Making sure every query was perfect. Every edge case was handled. Every feature was polished.
+                    </p>
+
+                    <p>
+                        Then I shipped it, and users asked for features I never even thought of. They didn't care about the things I spent weeks optimizing.
+                    </p>
+
+                    <p>
+                        <strong>The truth?</strong> Ship early. Get feedback. Iterate. Your first version doesn't need to handle 1 million requests per second if you have 10 users.
+                    </p>
+
+                    <p>
+                        Build for today's problems, not tomorrow's hypothetical scale.
+                    </p>
+
+                    <h2>Final Thoughts</h2>
+
+                    <p>
+                        Building scalable APIs is hard. You'll make mistakes. Things will break. Users will complain.
+                    </p>
+
+                    <p>
+                        But that's how you learn. Every broken production deployment teaches you something valuable. Every 3 AM debugging session makes you a better developer.
+                    </p>
+
+                    <p>
+                        Just remember:
+                    </p>
+
+                    <ul>
+                        <li>Index your database early</li>
+                        <li>Rate limit everything</li>
+                        <li>Implement proper authentication (with refresh tokens)</li>
+                        <li>Log aggressively</li>
+                        <li>Document thoroughly</li>
+                    </ul>
+
+                    <p>
+                        Do these things, and you'll avoid 90% of the problems I ran into.
+                    </p>
+
+                    <p>
+                        The other 10%? That's just part of the job. 😅
+                    </p>
+                </article>
+
+                <!-- Blog Footer -->
+                <div class="blog__footer">
+                    <!-- Share Section -->
+                    <div class="blog__share">
+                        <div class="blog__share__title">Share this post</div>
+                        <div class="blog__share__links">
+                            <a href="https://twitter.com/intent/tweet?text=5 Lessons From Building APIs&url=YOUR_URL" class="share__link" target="_blank" rel="noopener">
+                                <i data-lucide="twitter" width="16" height="16"></i>
+                                Twitter
+                            </a>
+                            <a href="https://www.linkedin.com/sharing/share-offsite/?url=YOUR_URL" class="share__link" target="_blank" rel="noopener">
+                                <i data-lucide="linkedin" width="16" height="16"></i>
+                                LinkedIn
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- CTA -->
+                    <div class="blog__cta">
+                        <h3>Need help with your backend project?</h3>
+                        <p>I build APIs that scale. Let's talk about your project.</p>
+                        <a href="index.html#contact" class="btn btn--primary">Get in Touch</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container">
+            <p class="footer__text">© 2025 Paulson Bosah. Built with pure 💙.</p>
+            <div class="footer__links">
+                <a href="https://github.com/yourusername" class="footer__link" target="_blank">
+                    <i data-lucide="github" width="20" height="20"></i>
+                </a>
+                <a href="https://linkedin.com/in/yourusername" class="footer__link" target="_blank">
+                    <i data-lucide="linkedin" width="20" height="20"></i>
+                </a>
+                <a href="https://twitter.com/yourusername" class="footer__link" target="_blank">
+                    <i data-lucide="twitter" width="20" height="20"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/base.js"></script>
+</body>
+</html>

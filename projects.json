@@ -1,0 +1,22 @@
+[
+    {
+        "title": "API Management System",
+        "description": "Built a REST API management system for handling user authentication, rate limiting, and data processing. System handles 10k+ requests daily with 99.9% uptime.",
+        "tech": ["Django", "PostgreSQL", "Redis", "Celery"],
+        "image": null,
+        "video": null,
+        "github": "https://github.com/yourusername/project1",
+        "demo": null,
+        "detailPage": "projects/api-management.html"
+    },
+    {
+        "title": "E-commerce Backend",
+        "description": "Developed complete backend for an e-commerce platform including payment integration, inventory management, order processing.",
+        "tech": ["Golang", "GoFiber", "MySQL", "Stripe"],
+        "image": "images/ecommerce.jpg",
+        "video": null,
+        "github": "https://github.com/yourusername/project2",
+        "demo": "https://demo.example.com",
+        "detailPage": "projects/ecommerce-backend.html"
+    }
+]
