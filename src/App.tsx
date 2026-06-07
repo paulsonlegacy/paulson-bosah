@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import type { FormEvent } from 'react'
 import './App.css'
-import backendEngineeringImage from './assets/images/Fundamentals_Of_Backend_Engineering.jpg'
-import databaseEngineeringImage from './assets/images/Fundamentals_Of_Database_Engineering.jpg'
-import conexiaImage from './assets/images/conexia.png'
-import projectsData from './assets/json/projects.json'
-import Footer from './layouts/Footer/Footer'
-import Header from './layouts/Header/Header'
+import backendEngineeringImage from '@/assets/images/Fundamentals_Of_Backend_Engineering.jpg'
+import databaseEngineeringImage from '@/assets/images/Fundamentals_Of_Database_Engineering.jpg'
+import conexiaImage from '@/assets/images/conexia.png'
+import projectsData from '@/assets/json/projects.json'
+import Footer from '@/layouts/Footer/Footer'
+import Header from '@/layouts/Header/Header'
 
 type Project = {
   title: string
