@@ -1,6 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import type { FormEvent } from 'react'
 import './App.css'
+import backendEngineeringImage from './assets/images/Fundamentals_Of_Backend_Engineering.jpg'
+import databaseEngineeringImage from './assets/images/Fundamentals_Of_Database_Engineering.jpg'
+import conexiaImage from './assets/images/conexia.png'
+import projectsData from './assets/json/projects.json'
 
 type Project = {
   title: string
@@ -18,8 +22,8 @@ type FormStatus = {
   message: string
 }
 
-const baseUrl = import.meta.env.BASE_URL
 const formspreeEndpoint = 'https://formspree.io/f/xkognpzl'
+const projects = projectsData as Project[]
 
 const skills = [
   'Python',
@@ -33,50 +37,27 @@ const skills = [
   'Git',
 ]
 
-function resolveAsset(path: string | null) {
+const projectImages: Record<string, string> = {
+  'images/conexia.png': conexiaImage,
+}
+
+function resolveProjectImage(path: string | null) {
   if (!path) return null
 
   if (/^https?:\/\//.test(path)) {
     return path
   }
 
-  return `${baseUrl}${path.replace(/^\/+/, '')}`
+  return projectImages[path] ?? null
 }
 
 function App() {
   const [isNavOpen, setIsNavOpen] = useState(false)
-  const [projects, setProjects] = useState<Project[]>([])
-  const [isLoadingProjects, setIsLoadingProjects] = useState(true)
-  const [projectError, setProjectError] = useState('')
   const [isSending, setIsSending] = useState(false)
   const [formStatus, setFormStatus] = useState<FormStatus>({
     type: 'idle',
     message: '',
   })
-
-  useEffect(() => {
-    async function loadProjects() {
-      try {
-        const response = await fetch(resolveAsset('assets/json/projects.json')!)
-
-        if (!response.ok) {
-          throw new Error('Failed to load projects')
-        }
-
-        const data = (await response.json()) as Project[]
-        setProjects(data)
-      } catch (error) {
-        console.error('Error loading projects:', error)
-        setProjectError(
-          'Failed to load projects. Make sure projects.json exists in public/assets/json.',
-        )
-      } finally {
-        setIsLoadingProjects(false)
-      }
-    }
-
-    loadProjects()
-  }, [])
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -254,9 +235,7 @@ function App() {
               <article className="certification__card">
                 <div className="certification__image">
                   <img
-                    src={resolveAsset(
-                      'assets/images/Fundamentals_Of_Backend_Engineering.jpg',
-                    )!}
+                    src={backendEngineeringImage}
                     alt="Fundamentals Of Backend Engineering"
                   />
                 </div>
@@ -282,9 +261,7 @@ function App() {
               <article className="certification__card">
                 <div className="certification__image">
                   <img
-                    src={resolveAsset(
-                      'assets/images/Fundamentals_Of_Database_Engineering.jpg',
-                    )!}
+                    src={databaseEngineeringImage}
                     alt="Fundamentals Of Database Engineering"
                   />
                 </div>
@@ -317,21 +294,14 @@ function App() {
               <p className="section__description">Things I've build</p>
             </div>
             <div className="projects__container" id="projectsContainer">
-              {isLoadingProjects && (
-                <div className="projects__loading">Loading projects...</div>
-              )}
-
-              {!isLoadingProjects && projectError && (
-                <div className="projects__error">{projectError}</div>
-              )}
-
-              {!isLoadingProjects && !projectError && projects.length === 0 && (
+              {projects.length === 0 && (
                 <div className="projects__error">No projects found.</div>
               )}
 
-              {!isLoadingProjects &&
-                !projectError &&
-                projects.map((project) => (
+              {projects.map((project) => {
+                const image = resolveProjectImage(project.image)
+
+                return (
                   <article className="project__item" key={project.title}>
                     <div className="project__header">
                       <h3 className="project__title">{project.title}</h3>
@@ -373,11 +343,8 @@ function App() {
                           title={`${project.title} demo video`}
                           allowFullScreen
                         />
-                      ) : project.image ? (
-                        <img
-                          src={resolveAsset(project.image)!}
-                          alt={project.title}
-                        />
+                      ) : image ? (
+                        <img src={image} alt={project.title} />
                       ) : (
                         <span className="project__placeholder">
                           [ no screenshot available ]
@@ -385,7 +352,8 @@ function App() {
                       )}
                     </div>
                   </article>
-                ))}
+                )
+              })}
             </div>
           </div>
         </section>

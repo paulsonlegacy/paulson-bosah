@@ -1,8 +1,6 @@
 # Backend Developer Portfolio
 
-A portfolio for Paulson Bosah, now being migrated from a pure HTML, CSS, and JavaScript project into a React + TypeScript project powered by Vite.
-
-The previous static implementation is preserved in `old/` for reference while the active app now lives at the project root.
+A portfolio for Paulson Bosah, migrated from a pure HTML, CSS, and JavaScript project into a React + TypeScript project powered by Vite.
 
 Live site: [paulsonlegacy.github.io/paulson-bosah](https://paulsonlegacy.github.io/paulson-bosah)
 
@@ -20,23 +18,23 @@ Tech stack featured in the portfolio:
 
 ## Migration Notes
 
-This repository started as a static HTML portfolio. The old files have been moved into `old/`, and the active project has been moved from `my-app/` into the repository root.
+This repository started as a static HTML portfolio. The active project now lives at the repository root as a React + TypeScript app.
 
 The React migration keeps the original portfolio content and styling, but moves page behavior into React:
 
 - Navigation state is handled with React state.
-- Projects are loaded from `public/assets/json/projects.json`.
-- Certification and project images are served from `public/assets/images/`.
+- Projects are loaded from `src/assets/json/projects.json`.
+- Certification and project images are imported from `src/assets/images/`.
 - The contact form still submits through Formspree.
 
 ## Project Structure
 
 ```text
 .
-├── old/                 # Archived HTML/CSS/JS version
 ├── public/
-│   └── assets/          # Portfolio images, JSON, and archived static assets
+│   └── favicon.svg
 ├── src/
+│   ├── assets/          # Portfolio images, JSON, and source-owned assets
 │   ├── App.tsx          # Main React portfolio
 │   ├── App.css          # Portfolio page styles
 │   ├── index.css        # Shared/global styles
@@ -63,14 +61,14 @@ npm run build
 
 ## Adding Projects
 
-Add project details to `public/assets/json/projects.json`:
+Add project details to `src/assets/json/projects.json`:
 
 ```json
 {
   "title": "Your Project Name",
   "description": "Brief description of what it does",
   "tech": ["Django", "PostgreSQL", "Redis"],
-  "image": "assets/images/your-project.jpg",
+  "image": "images/your-project.jpg",
   "video": null,
   "github": "https://github.com/yourusername/project",
   "demo": "https://yourproject.com",
