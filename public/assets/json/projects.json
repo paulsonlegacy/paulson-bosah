@@ -1,0 +1,22 @@
+[
+    {
+        "title": "Conexia - Python STUN Library",
+        "description": "A Python library for resolving network information via STUN servers, and designed for seamless integration with backend frameworks.",
+        "tech": ["Python"],
+        "image": "assets/images/conexia.png",
+        "video": null,
+        "github": "https://github.com/paulsonlegacy/conexia",
+        "demo": "https://pypi.org/project/conexia/",
+        "detailPage": null
+    },
+    {
+        "title": "E-commerce Backend",
+        "description": "Developed complete backend for an e-commerce platform including payment integration, inventory management, order processing.",
+        "tech": ["Golang", "GoFiber", "MySQL", "Stripe"],
+        "image": "images/ecommerce.jpg",
+        "video": null,
+        "github": "https://github.com/yourusername/project2",
+        "demo": "https://demo.example.com",
+        "detailPage": "projects/ecommerce-backend.html"
+    }
+]
