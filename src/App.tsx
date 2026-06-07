@@ -5,6 +5,8 @@ import backendEngineeringImage from './assets/images/Fundamentals_Of_Backend_Eng
 import databaseEngineeringImage from './assets/images/Fundamentals_Of_Database_Engineering.jpg'
 import conexiaImage from './assets/images/conexia.png'
 import projectsData from './assets/json/projects.json'
+import Footer from './layouts/Footer/Footer'
+import Header from './layouts/Header/Header'
 
 type Project = {
   title: string
@@ -52,7 +54,6 @@ function resolveProjectImage(path: string | null) {
 }
 
 function App() {
-  const [isNavOpen, setIsNavOpen] = useState(false)
   const [isSending, setIsSending] = useState(false)
   const [formStatus, setFormStatus] = useState<FormStatus>({
     type: 'idle',
@@ -97,53 +98,9 @@ function App() {
     }
   }
 
-  const closeNav = () => setIsNavOpen(false)
-
   return (
     <>
-      <header className="header">
-        <div className="header__container">
-          <a href="#" className="header__logo" onClick={closeNav}>
-            $ <span>Paulson Bosah</span>
-          </a>
-
-          <nav className="nav" aria-label="Primary navigation">
-            <ul className={`nav__list ${isNavOpen ? 'active' : ''}`} id="navList">
-              <li>
-                <a href="#about" className="nav__link" onClick={closeNav}>
-                  about
-                </a>
-              </li>
-              <li>
-                <a href="#skills" className="nav__link" onClick={closeNav}>
-                  skills
-                </a>
-              </li>
-              <li>
-                <a href="#projects" className="nav__link" onClick={closeNav}>
-                  projects
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="nav__link" onClick={closeNav}>
-                  contact
-                </a>
-              </li>
-            </ul>
-          </nav>
-
-          <button
-            type="button"
-            className="nav__toggle"
-            aria-controls="navList"
-            aria-expanded={isNavOpen}
-            aria-label="Toggle navigation"
-            onClick={() => setIsNavOpen((open) => !open)}
-          >
-            <span aria-hidden="true">{isNavOpen ? 'x' : 'menu'}</span>
-          </button>
-        </div>
-      </header>
+      <Header />
 
       <main>
         <section className="hero">
@@ -468,45 +425,7 @@ function App() {
         </section>
       </main>
 
-      <footer className="footer">
-        <div className="footer__container">
-          <p className="footer__text">2025 Paulson Bosah. Built with React.</p>
-          <div className="footer__links">
-            <a
-              href="https://github.com/paulsonlegacy"
-              className="footer__link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub
-            </a>
-            <a
-              href="https://www.linkedin.com/in/paulson-bosah"
-              className="footer__link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              LinkedIn
-            </a>
-            <a
-              href="https://x.com/paulsonlegacy"
-              className="footer__link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              X
-            </a>
-            <a
-              href="https://wa.link/5iy3zb"
-              className="footer__link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Phone
-            </a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </>
   )
 }

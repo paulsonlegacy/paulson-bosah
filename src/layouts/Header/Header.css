@@ -1,0 +1,82 @@
+.header {
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.header__container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__logo {
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.header__logo span {
+    color: var(--accent);
+}
+
+.nav__list {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav__link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.nav__link:hover,
+.nav__link.active {
+    color: var(--accent);
+}
+
+.nav__toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+    .header__container {
+        padding: 0 1.5rem;
+    }
+
+    .nav__list {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        width: 100%;
+        background: var(--bg-secondary);
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1.5rem;
+        border-bottom: 1px solid var(--border);
+        transition: right 0.3s;
+        z-index: 999;
+    }
+
+    .nav__list.active {
+        right: 0;
+    }
+
+    .nav__toggle {
+        display: block;
+    }
+}

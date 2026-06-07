@@ -35,6 +35,11 @@ The React migration keeps the original portfolio content and styling, but moves 
 │   └── favicon.svg
 ├── src/
 │   ├── assets/          # Portfolio images, JSON, and source-owned assets
+│   ├── components/      # Reusable UI components
+│   ├── layouts/         # Shared page layouts like header and footer
+│   ├── pages/           # Page-level views
+│   ├── routes/          # Route definitions
+│   ├── types/           # Shared TypeScript types
 │   ├── App.tsx          # Main React portfolio
 │   ├── App.css          # Portfolio page styles
 │   ├── index.css        # Shared/global styles
@@ -79,3 +84,7 @@ Add project details to `src/assets/json/projects.json`:
 ## Contact Form
 
 The contact form uses [Formspree](https://formspree.io). Update `formspreeEndpoint` in `src/App.tsx` if the form endpoint changes.
+
+## Todo
+
+- Revisit `src/assets/css/App.css` and trim it into a smaller long-term global theme file once page and layout CSS are fully separated.
