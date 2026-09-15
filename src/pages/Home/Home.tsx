@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import type { FormEvent } from 'react'
+import type { SubmitEvent } from 'react'
 import backendEngineeringImage from '@/assets/images/Fundamentals_Of_Backend_Engineering.jpg'
 import databaseEngineeringImage from '@/assets/images/Fundamentals_Of_Database_Engineering.jpg'
-import conexiaImage from '@/assets/images/conexia.png'
 import projectsData from '@/assets/json/projects.json'
+import { resolveProjectImage } from '@/utils/general'
 import Footer from '@/layouts/Footer/Footer'
 import Header from '@/layouts/Header/Header'
 import './Home.css'
@@ -39,19 +39,6 @@ const skills = [
   'Git',
 ]
 
-const projectImages: Record<string, string> = {
-  'images/conexia.png': conexiaImage,
-}
-
-function resolveProjectImage(path: string | null) {
-  if (!path) return null
-
-  if (/^https?:\/\//.test(path)) {
-    return path
-  }
-
-  return projectImages[path] ?? null
-}
 
 function Home() {
   const [isSending, setIsSending] = useState(false)
@@ -60,10 +47,10 @@ function Home() {
     message: '',
   })
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: SubmitEvent<HTMLFormElement>) {
     event.preventDefault()
 
-    const form = event.currentTarget
+    const form = event.currentTarget as HTMLFormElement
     const formData = new FormData(form)
 
     setIsSending(true)
