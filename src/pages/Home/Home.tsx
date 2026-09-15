@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import type { SubmitEvent } from 'react'
 import { Link } from 'react-router-dom'
+import { FaEnvelope, FaGithub, FaLinkedinIn, FaXTwitter } from 'react-icons/fa6'
 import backendEngineeringImage from '@/assets/images/Fundamentals_Of_Backend_Engineering.jpg'
 import databaseEngineeringImage from '@/assets/images/Fundamentals_Of_Database_Engineering.jpg'
 import projectsData from '@/assets/json/projects.json'
@@ -334,7 +335,7 @@ function Home() {
                 </p>
                 <ul className="contact__list">
                   <li className="contact__item">
-                    <span aria-hidden="true">@</span>
+                    <FaEnvelope aria-hidden="true" className="contact__icon" />
                     <a
                       href="mailto:paulsonbosah@gmail.com"
                       className="contact__link"
@@ -343,7 +344,7 @@ function Home() {
                     </a>
                   </li>
                   <li className="contact__item">
-                    <span aria-hidden="true">git</span>
+                    <FaGithub aria-hidden="true" className="contact__icon" />
                     <a
                       href="https://github.com/paulsonlegacy"
                       className="contact__link"
@@ -354,7 +355,7 @@ function Home() {
                     </a>
                   </li>
                   <li className="contact__item">
-                    <span aria-hidden="true">in</span>
+                    <FaLinkedinIn aria-hidden="true" className="contact__icon" />
                     <a
                       href="https://linkedin.com/in/paulson-bosah"
                       className="contact__link"
@@ -365,7 +366,7 @@ function Home() {
                     </a>
                   </li>
                   <li className="contact__item">
-                    <span aria-hidden="true">x</span>
+                    <FaXTwitter aria-hidden="true" className="contact__icon" />
                     <a
                       href="https://x.com/paulsonlegacy"
                       className="contact__link"

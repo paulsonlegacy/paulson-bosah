@@ -26,6 +26,9 @@
 
 .footer__link {
     color: var(--text-dim);
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
     transition: color 0.2s;
 }
 
