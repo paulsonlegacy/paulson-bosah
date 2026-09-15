@@ -33,5 +33,6 @@ const imageModules = import.meta.glob('/src/assets/images/*', { eager: true, imp
  */
 export function resolveProjectImage(filename: string | null): string | null {
   if (!filename) return null
+  if (/^https?:\/\//.test(filename)) return filename
   return (imageModules[`/src/assets/images/${filename}`] as string) ?? null
 }

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import type { SubmitEvent } from 'react'
+import { Link } from 'react-router-dom'
 import backendEngineeringImage from '@/assets/images/Fundamentals_Of_Backend_Engineering.jpg'
 import databaseEngineeringImage from '@/assets/images/Fundamentals_Of_Database_Engineering.jpg'
 import projectsData from '@/assets/json/projects.json'
@@ -12,7 +13,8 @@ type Project = {
   title: string
   description: string
   tech: string[]
-  image: string | null
+  features?: string[]
+  images: string[]
   video: string | null
   github: string | null
   demo: string | null
@@ -243,7 +245,7 @@ function Home() {
               )}
 
               {projects.map((project) => {
-                const image = resolveProjectImage(project.image)
+                const image = resolveProjectImage(project.images[0] ?? null)
 
                 return (
                   <article className="project__item" key={project.title}>
@@ -270,6 +272,11 @@ function Home() {
                             demo
                           </a>
                         )}
+                        {project.detailPage && (
+                          <Link to={project.detailPage} className="project__link">
+                            details →
+                          </Link>
+                        )}
                       </div>
                     </div>
                     <p className="project__description">{project.description}</p>
@@ -280,12 +287,22 @@ function Home() {
                         </span>
                       ))}
                     </div>
+                    {project.features && project.features.length > 0 && (
+                      <ul className="project__features">
+                        {project.features.map((feature) => (
+                          <li className="project__feature" key={feature}>
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                     <div className="project__media">
                       {project.video ? (
-                        <iframe
+                        <video
                           src={project.video}
-                          title={`${project.title} demo video`}
-                          allowFullScreen
+                          poster={image ?? undefined}
+                          controls
+                          preload="metadata"
                         />
                       ) : image ? (
                         <img src={image} alt={project.title} />

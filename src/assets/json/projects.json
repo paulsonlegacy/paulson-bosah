@@ -1,22 +1,66 @@
 [
     {
         "title": "Conexia - Python STUN Library",
-        "description": "A Python library for resolving network information via STUN servers, and designed for seamless integration with backend frameworks.",
+        "description": "A Python library for resolving network information via STUN servers, designed for seamless integration with backend frameworks.",
         "tech": ["Python"],
-        "image": "conexia.png",
+        "features": [],
+        "images": ["conexia.png"],
         "video": null,
         "github": "https://github.com/paulsonlegacy/conexia",
         "demo": "https://pypi.org/project/conexia/",
         "detailPage": null
     },
     {
-        "title": "E-commerce Backend",
-        "description": "Developed complete backend for an e-commerce platform including payment integration, inventory management, order processing.",
-        "tech": ["Golang", "GoFiber", "MySQL", "Stripe"],
-        "image": "images/ecommerce.jpg",
+        "title": "QuickAir",
+        "description": "Nigeria's B2B flight aggregation platform for travel agencies. Real-time concurrent search across 12 airline portals, automated ticket issuance, and a pay-as-you-go wallet.",
+        "tech": ["Golang", "GoFiber", "Go-Rod", "GORM", "React", "SSE", "PostgreSQL", "SQLite", "Paystack", "Claude AI"],
+        "features": [
+            "3-tier concurrent scraper architecture: Wakanow aggregator API, headless-browser scrapers (go-rod/Chrome), and lightweight HTTP scrapers running as a fan-out across 12 Nigerian airlines",
+            "Real-time incremental flight results streamed to the client via Server-Sent Events (SSE) as each scraper finishes",
+            "Browser semaphore singleton limiting concurrent Chrome instances based on available server RAM, with a separate semaphore for the ticket-issuance worker pool",
+            "Shared Crane.aero and vars portal automation library reused across multiple sister airlines — a single DOM-interaction codebase for all Crane and vars backed carriers",
+            "Wakanow fallback signal: direct scrapers yield their results to the aggregator and only run independently if Wakanow fails or times out",
+            "Chrome profile pool per airline — credential slots managed as a buffered-channel token bucket, with stealth flags to suppress browser automation fingerprints",
+            "Durable ticket issuance queue: jobs written to Postgres first, claimed atomically by workers, with dependent-segment ordering (return flight waits for outbound PNR) and admin force-cancel",
+            "5-step persistent job poller running every 5 minutes to recover orphaned, stale, and exhausted queue records across restarts",
+            "HMAC-SHA256 partner API with replay-attack protection (5-minute timestamp window) for external system integrations",
+            "Pay-as-you-go wallet via Paystack with dedicated virtual accounts — agencies fund exactly what they need, no minimum balance",
+            "Granular per-staff permission flags (search, issue, view bookings, view balance) enforced at middleware level",
+            "Admin scraper health dashboard with per-airline consecutive error counts, last-scraped timestamps, and live status"
+        ],
+        "images": [
+            "https://res.cloudinary.com/cvacf0y8/image/upload/v1789481947/quickair_homepage.png"
+        ],
+        "video": "https://res.cloudinary.com/cvacf0y8/video/upload/v1789481963/Quickair_-_Full_Automation_Edited_3.mp4",
+        "github": "https://github.com/paulsonlegacy/quickair-web",
+        "demo": "https://quickair.app",
+        "detailPage": "/projects/quickair"
+    },
+    {
+        "title": "MyRoomStatus",
+        "description": "Full-stack hotel property management system (PMS) for the West African market. Runs as a cloud SaaS or a self-contained offline binary — same Go backend, same React frontend, two database drivers.",
+        "tech": ["Golang", "GoFiber", "GORM", "PostgreSQL", "SQLite", "React", "WebSockets", "Gemini AI", "Paystack"],
+        "features": [
+            "Dual deployment mode: cloud SaaS on PostgreSQL and a standalone offline binary (SQLite, no internet required) built from the same codebase with a single compiler flag",
+            "React SPA embedded directly in the Go binary via go:embed — the offline binary is a single executable that serves the entire frontend with no external web server",
+            "Offline provisioning via a signed configuration bundle: hotel setup exported from the cloud in one HTTP response and applied to local SQLite via GORM upsert transactions",
+            "HMAC-signed periodic sync pushing offline records (bookings, sales, guests, visitors) back to the cloud PostgreSQL instance",
+            "Real-time dashboard WebSocket hub broadcasting selective refresh signals scoped per hotel and data section, triggering targeted frontend refetches instead of full reloads",
+            "Smart TV push notifications via WebSocket with a pending message queue — messages persisted to DB when a TV is offline and flushed on reconnect",
+            "Five smart lock vendors behind a single Provider interface: TTLock, Tuya IoT, Salto KS, ASSA ABLOY Vostio, and DouWin RFID — adding a new vendor only requires implementing the interface",
+            "DouWin RFID bridge agent: a separate Go Windows service that loads the vendor DLL, connects to the cloud via a persistent WebSocket, and relays card-issue commands with a SQLite-backed command queue for durability across disconnects",
+            "POS/F&B module with inventory tracking, QR-code storefront, partial sales, refunds, and per-category revenue reporting",
+            "Flight booking via QuickAir HMAC partner API — hotel staff can search and book flights directly inside the PMS without leaving the platform",
+            "Google Gemini AI support chatbot with a hotel-specific markdown knowledge base compiled into the system prompt and driver.js guided tour triggers",
+            "Multi-property group reports across hotel chains — occupancy, revenue, P&L, and guest manifests aggregated across all properties in a group",
+            "SaaS billing with tiered license plans and optional add-ons (smart TV, F&B, key control, multi-property reports) gated at middleware level"
+        ],
+        "images": [
+            "https://res.cloudinary.com/cvacf0y8/image/upload/v1789484401/hero-DRIIJs6r.png"
+        ],
         "video": null,
-        "github": "https://github.com/yourusername/project2",
-        "demo": "https://demo.example.com",
-        "detailPage": "projects/ecommerce-backend.html"
+        "github": "https://github.com/paulsonlegacy/roomstatus",
+        "demo": "https://myroomstatus.com",
+        "detailPage": "/projects/myroomstatus"
     }
 ]
