@@ -1,0 +1,52 @@
+.carousel {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--border);
+    background: var(--bg-secondary);
+}
+
+.carousel__frame {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--bg-tertiary);
+}
+
+.carousel__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.carousel__controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6rem 1rem;
+    border-top: 1px solid var(--border);
+}
+
+.carousel__btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--accent);
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 1rem;
+    padding: 0.25rem 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.carousel__btn:hover {
+    background: var(--accent);
+    color: var(--bg-primary);
+    border-color: var(--accent);
+}
+
+.carousel__counter {
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+}

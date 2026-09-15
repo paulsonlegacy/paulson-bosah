@@ -29,7 +29,9 @@
             "Admin scraper health dashboard with per-airline consecutive error counts, last-scraped timestamps, and live status"
         ],
         "images": [
-            "https://res.cloudinary.com/cvacf0y8/image/upload/v1789481947/quickair_homepage.png"
+            "https://res.cloudinary.com/cvacf0y8/image/upload/v1789481947/quickair_homepage.png",
+            "https://res.cloudinary.com/cvacf0y8/image/upload/v1789481900/Screenshot_from_2026-09-15_14-07-29.png",
+            "https://res.cloudinary.com/cvacf0y8/image/upload/v1789481900/Screenshot_from_2026-09-15_14-08-16.png"
         ],
         "video": "https://res.cloudinary.com/cvacf0y8/video/upload/v1789481963/Quickair_-_Full_Automation_Edited_3.mp4",
         "github": "https://github.com/paulsonlegacy/quickair-web",
@@ -56,7 +58,8 @@
             "SaaS billing with tiered license plans and optional add-ons (smart TV, F&B, key control, multi-property reports) gated at middleware level"
         ],
         "images": [
-            "https://res.cloudinary.com/cvacf0y8/image/upload/v1789484401/hero-DRIIJs6r.png"
+            "https://res.cloudinary.com/cvacf0y8/image/upload/v1789484401/hero-DRIIJs6r.png",
+            "https://res.cloudinary.com/cvacf0y8/image/upload/v1789487026/myroomstatus_homepage.png"
         ],
         "video": null,
         "github": "https://github.com/paulsonlegacy/roomstatus",

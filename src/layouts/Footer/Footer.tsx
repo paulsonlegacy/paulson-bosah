@@ -11,7 +11,7 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer__container">
-        <p className="footer__text">2025 Paulson Bosah. Built with React.</p>
+        <p className="footer__text">2025 Paulson Bosah. Built with Love.</p>
         <div className="footer__links">
           {footerLinks.map((link) => (
             <a

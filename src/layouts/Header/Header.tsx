@@ -2,10 +2,10 @@ import { useState } from 'react';
 import './Header.css';
 
 const navLinks = [
-  { href: '#about', label: 'about' },
-  { href: '#skills', label: 'skills' },
-  { href: '#projects', label: 'projects' },
-  { href: '#contact', label: 'contact' },
+  { href: '/#about', label: 'about' },
+  { href: '/#skills', label: 'skills' },
+  { href: '/#projects', label: 'projects' },
+  { href: '/#contact', label: 'contact' },
 ]
 
 function Header() {
@@ -16,7 +16,7 @@ function Header() {
   return (
     <header className="header">
       <div className="header__container">
-        <a href="#" className="header__logo" onClick={closeNav}>
+        <a href="/" className="header__logo" onClick={closeNav}>
           $ <span>Paulson Bosah</span>
         </a>
 
