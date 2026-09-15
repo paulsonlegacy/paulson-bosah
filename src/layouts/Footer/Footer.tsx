@@ -1,27 +1,29 @@
+import { FaGithub, FaLinkedinIn, FaXTwitter, FaWhatsapp } from 'react-icons/fa6'
 import './Footer.css';
 
 const footerLinks = [
-  { href: 'https://github.com/paulsonlegacy', label: 'GitHub' },
-  { href: 'https://www.linkedin.com/in/paulson-bosah', label: 'LinkedIn' },
-  { href: 'https://x.com/paulsonlegacy', label: 'X' },
-  { href: 'https://wa.link/5iy3zb', label: 'Phone' },
+  { href: 'https://github.com/paulsonlegacy', label: 'GitHub', icon: FaGithub },
+  { href: 'https://www.linkedin.com/in/paulson-bosah', label: 'LinkedIn', icon: FaLinkedinIn },
+  { href: 'https://x.com/paulsonlegacy', label: 'X', icon: FaXTwitter },
+  { href: 'https://wa.link/5iy3zb', label: 'WhatsApp', icon: FaWhatsapp },
 ]
 
 function Footer() {
   return (
     <footer className="footer">
       <div className="footer__container">
-        <p className="footer__text">2025 Paulson Bosah. Built with Love.</p>
+        <p className="footer__text"><span style={{fontSize:'22px'}}>&copy;</span>2026 Paulson Bosah. Built with Love.</p>
         <div className="footer__links">
-          {footerLinks.map((link) => (
+          {footerLinks.map(({ href, label, icon: Icon }) => (
             <a
-              href={link.href}
+              href={href}
               className="footer__link"
               target="_blank"
               rel="noopener noreferrer"
-              key={link.href}
+              aria-label={label}
+              key={href}
             >
-              {link.label}
+              <Icon />
             </a>
           ))}
         </div>
