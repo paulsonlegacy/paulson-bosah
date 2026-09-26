@@ -29,6 +29,8 @@ const personJsonLd = {
   knowsAbout: [
     'Python', 'Django', 'Golang', 'GoFiber', 'PHP', 'Laravel',
     'REST API Design', 'PostgreSQL', 'MySQL', 'SQLite',
+    'Web Scraping', 'Browser Automation', 'Concurrent Scraping',
+    'Headless Chrome', 'Chrome DevTools Protocol',
     'Server-Sent Events', 'WebSockets', 'AI Integration',
     'Backend Architecture', 'Database Engineering',
   ],
@@ -68,6 +70,8 @@ const skills = [
   'REST APIs',
   'PostgreSQL',
   'MySQL',
+  'Web Scraping',
+  'Browser Automation',
   'Git',
 ]
 

@@ -1,0 +1,108 @@
+.wa-widget {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+/* Tooltip label — matches portfolio dark theme */
+.wa-widget__label {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 0;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(6px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+
+.wa-widget:hover .wa-widget__label,
+.wa-widget:focus-within .wa-widget__label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Floating button — WhatsApp green is kept (brand colour) */
+.wa-widget__btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25d366;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.18s ease, background 0.18s ease;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.wa-widget__btn:hover,
+.wa-widget__btn:focus-visible {
+  transform: scale(1.08);
+  background: #1ebe5d;
+}
+
+.wa-widget__btn:active {
+  transform: scale(0.96);
+}
+
+/* WhatsApp SVG icon */
+.wa-widget__icon {
+  width: 30px;
+  height: 30px;
+  fill: #fff;
+}
+
+/* Pulse ring */
+.wa-widget__btn::after {
+  content: '';
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid #25d366;
+  animation: wa-pulse 2.4s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes wa-pulse {
+  0%   { transform: scale(1);   opacity: 0.6; }
+  70%  { transform: scale(1.5); opacity: 0;   }
+  100% { transform: scale(1.5); opacity: 0;   }
+}
+
+@media (max-width: 480px) {
+  .wa-widget {
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .wa-widget__btn {
+    width: 50px;
+    height: 50px;
+  }
+
+  .wa-widget__btn::after {
+    width: 50px;
+    height: 50px;
+  }
+
+  .wa-widget__icon {
+    width: 26px;
+    height: 26px;
+  }
+}

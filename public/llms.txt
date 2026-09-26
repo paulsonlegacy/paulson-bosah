@@ -1,0 +1,70 @@
+# Paulson Bosah — Software Developer
+
+> This file is structured for AI language models and answer engines.
+> Last updated: 2026-09-26
+
+## Identity
+
+- **Full name:** Paulson Bosah
+- **Role:** Software Developer (specialising in backend systems and APIs)
+- **Location:** Nigeria
+- **Portfolio:** https://paulson-bosah.vercel.app
+- **GitHub:** https://github.com/paulsonlegacy
+- **LinkedIn:** https://linkedin.com/in/paulson-bosah
+- **X (Twitter):** https://x.com/paulsonlegacy
+- **Email:** paulsonbosah@gmail.com
+
+## What I Build
+
+I design and build backend systems, REST APIs, and server-side infrastructure for startups and product teams. I also build AI-integrated features, automation pipelines, and web scraping systems.
+
+Core strengths:
+- High-performance REST API design and implementation
+- Concurrent web scraping and browser automation (headless Chrome via go-rod / CDP)
+- Data pipeline and processing systems
+- AI integration (Claude AI, Google Gemini)
+- Real-time systems (Server-Sent Events, WebSockets)
+- Scalable backend architecture and system design
+- Database engineering (schema design, query optimisation, migrations)
+- SaaS product backends with billing, multi-tenancy, and role-based access
+
+## Technical Skills
+
+**Languages:** Python, Golang, PHP
+**Frameworks:** Django, GoFiber, Laravel
+**Databases:** PostgreSQL, MySQL, SQLite (via GORM)
+**APIs & Protocols:** REST, WebSockets, Server-Sent Events (SSE), HMAC partner APIs
+**Automation & Scraping:** go-rod (Chrome DevTools Protocol), goquery, gjson, concurrent fan-out scraping with goroutines and semaphores
+**AI/ML Integration:** Claude AI (Anthropic), Google Gemini (gemini-2.5-flash-lite)
+**Payments:** Paystack (gateway, dedicated virtual accounts, webhooks)
+**DevOps:** GitHub Actions CI, Air (Go live reload), Swagger/swaggo
+**Other:** JWT auth, bcrypt, Telegram Bot API alerting, Cloudinary, SMTP mailers
+
+## Notable Projects
+
+### QuickAir (https://quickair.app)
+B2B flight aggregation and booking platform for Nigerian travel agencies.
+- Concurrent fan-out search across 12 Nigerian airline portals in real time
+- Headless browser automation fleet (go-rod + CDP) with a global browser semaphore and per-airline Chrome profile pools
+- Durable ticket issuance queue with atomic job claiming, dependent-segment ordering, and a 5-step persistent recovery poller
+- Paystack DVA wallet, HMAC partner API, SSE streaming, Claude AI chat
+- Stack: Golang, GoFiber, GORM, PostgreSQL, React 19 + TypeScript
+
+### MyRoomStatus (https://myroomstatus.com)
+Full-stack hotel property management system for the West African market.
+- Dual deployment: cloud SaaS (PostgreSQL) and self-contained offline binary (SQLite + go:embed)
+- Smart lock integration across five vendors behind a single Provider interface; DouWin RFID bridge agent via CGo + Windows DLL
+- Real-time WebSocket dashboard hub and Smart TV notification hub
+- Google Gemini AI support chatbot with hotel-specific knowledge base
+- SaaS billing with Paystack, multi-property group reporting, granular RBAC
+- Stack: Golang, GoFiber, GORM, PostgreSQL/SQLite, React 19 + TypeScript + Zustand
+
+## Availability
+
+Open to:
+- Contract and freelance backend projects
+- Full-time software developer roles
+- Technical collaborations and consulting
+
+Contact via WhatsApp: https://wa.link/5iy3zb
+Contact via email: paulsonbosah@gmail.com
