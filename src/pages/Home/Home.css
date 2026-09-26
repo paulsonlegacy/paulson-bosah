@@ -65,6 +65,23 @@
     color: var(--bg-primary);
 }
 
+.hero__actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.hero__cta--secondary {
+    color: var(--text-secondary);
+    border-color: var(--border);
+}
+
+.hero__cta--secondary:hover {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border-color: var(--text-secondary);
+}
+
 /* Section Styles */
 .section {
     padding: 4rem 0;

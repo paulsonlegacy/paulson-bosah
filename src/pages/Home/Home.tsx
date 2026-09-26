@@ -5,6 +5,7 @@ import { FaEnvelope, FaGithub, FaLinkedinIn, FaXTwitter } from 'react-icons/fa6'
 import backendEngineeringImage from '@/assets/images/Fundamentals_Of_Backend_Engineering.jpg'
 import databaseEngineeringImage from '@/assets/images/Fundamentals_Of_Database_Engineering.jpg'
 import projectsData from '@/assets/json/projects.json'
+import cvFile from '@/assets/docs/CV.pdf'
 import { resolveProjectImage } from '@/utils/general'
 import Footer from '@/layouts/Footer/Footer'
 import Header from '@/layouts/Header/Header'
@@ -122,9 +123,18 @@ function Home() {
                 focus on writing clean, maintainable code and solving real problems.
                 No frontend drama, just solid backend work.
               </p>
-              <a href="#contact" className="hero__cta">
-                Get in touch
-              </a>
+              <div className="hero__actions">
+                <a href="#contact" className="hero__cta">
+                  Get in touch
+                </a>
+                <a
+                  href={cvFile}
+                  download="Paulson_Bosah_CV.pdf"
+                  className="hero__cta hero__cta--secondary"
+                >
+                  Download CV
+                </a>
+              </div>
             </div>
           </div>
         </section>
