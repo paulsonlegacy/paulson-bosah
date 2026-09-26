@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom'
 import Header from '@/layouts/Header/Header'
 import Footer from '@/layouts/Footer/Footer'
 import ProjectCarousel from '@/components/ProjectCarousel/ProjectCarousel'
+import PageMeta from '@/components/PageMeta/PageMeta'
+import Button from '@/components/Button/Button'
 import projectsData from '@/assets/json/projects.json'
 import '@/assets/css/detail.css'
 
@@ -94,6 +96,15 @@ const featureGroups = [
 function QuickAir() {
   return (
     <>
+      <PageMeta
+        title="QuickAir — Flight Booking System | Paulson Bosah"
+        description={
+          'QuickAir is a Golang-powered flight booking backend for Nigerian travel agencies. ' +
+          'Real-time seat availability via browser automation, Paystack payments, AI chat via Claude, ' +
+          'and live SSE updates — built with GoFiber, GORM, PostgreSQL, and React 19.'
+        }
+        canonical="https://paulson-bosah.vercel.app/projects/quickair"
+      />
       <Header />
 
       <main>
@@ -106,14 +117,15 @@ function QuickAir() {
               search across 12 airline portals, automated ticket issuance, and a pay-as-you-go wallet.
             </p>
             <div className="detail__actions">
-              <a
+              <Button
                 href="https://quickair.app"
-                className="detail__link"
                 target="_blank"
                 rel="noopener noreferrer"
+                variant="primary"
+                outline
               >
                 live platform →
-              </a>
+              </Button>
             </div>
           </div>
         </section>

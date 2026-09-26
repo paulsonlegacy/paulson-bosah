@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom'
 import Header from '@/layouts/Header/Header'
 import Footer from '@/layouts/Footer/Footer'
 import ProjectCarousel from '@/components/ProjectCarousel/ProjectCarousel'
+import PageMeta from '@/components/PageMeta/PageMeta'
+import Button from '@/components/Button/Button'
 import projectsData from '@/assets/json/projects.json'
 import '@/assets/css/detail.css'
 
@@ -117,6 +119,15 @@ const featureGroups = [
 function MyRoomStatus() {
   return (
     <>
+      <PageMeta
+        title="MyRoomStatus — Hotel Management System | Paulson Bosah"
+        description={
+          'MyRoomStatus is a full-stack hotel management system built with Golang, WebSockets, ' +
+          'and Google Gemini AI. Features real-time room tracking, Paystack payments, offline mode ' +
+          'via a Windows tray binary, and Cloudinary media storage — GoFiber, GORM, PostgreSQL.'
+        }
+        canonical="https://paulson-bosah.vercel.app/projects/myroomstatus"
+      />
       <Header />
 
       <main>
@@ -130,14 +141,15 @@ function MyRoomStatus() {
               dashboards, and an AI support chatbot.
             </p>
             <div className="detail__actions">
-              <a
+              <Button
                 href="https://myroomstatus.com"
-                className="detail__link"
                 target="_blank"
                 rel="noopener noreferrer"
+                variant="primary"
+                outline
               >
                 live platform →
-              </a>
+              </Button>
             </div>
           </div>
         </section>

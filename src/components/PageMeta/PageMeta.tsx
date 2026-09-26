@@ -1,11 +1,11 @@
-const BASE_URL   = 'https://quickair.app';
+const BASE_URL    = 'https://paulson-bosah.vercel.app';
 const DEFAULT_IMG = `${BASE_URL}/og-image.png`;
 const DEFAULT_DESC =
-  "QuickAir is Nigeria's fastest flight booking platform for travel agencies. " +
-  'Search, compare, and book domestic flights instantly with real-time availability.';
+  'Paulson Bosah is a software developer specialising in Python, Django, Golang, and REST APIs. ' +
+  'Building robust server-side systems, scalable APIs, and AI-integrated products.';
 
 interface PageMetaProps {
-  /** Full browser-tab title — e.g. "QuickAir | Book Flights" */
+  /** Full browser-tab title — e.g. "Paulson Bosah | Backend Developer" */
   title: string;
   description?: string;
   /** Absolute canonical URL — defaults to current origin + pathname */
@@ -49,7 +49,7 @@ const PageMeta = ({
       <link rel="canonical" href={url} />
 
       {/* ── Open Graph ── */}
-      <meta property="og:site_name" content="QuickAir" />
+      <meta property="og:site_name" content="Paulson Bosah" />
       <meta property="og:type"        content="website" />
       <meta property="og:url"         content={url} />
       <meta property="og:title"       content={title} />
@@ -58,6 +58,7 @@ const PageMeta = ({
 
       {/* ── Twitter / X Card ── */}
       <meta name="twitter:card"        content="summary_large_image" />
+      <meta name="twitter:site"        content="@paulsonlegacy" />
       <meta name="twitter:title"       content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image"       content={image} />

@@ -2,6 +2,9 @@ import { useState } from 'react'
 import type { SubmitEvent } from 'react'
 import { Link } from 'react-router-dom'
 import { FaEnvelope, FaGithub, FaLinkedinIn, FaXTwitter } from 'react-icons/fa6'
+import Button from '@/components/Button/Button'
+import Input from '@/components/Input/Input'
+import PageMeta from '@/components/PageMeta/PageMeta'
 import backendEngineeringImage from '@/assets/images/Fundamentals_Of_Backend_Engineering.jpg'
 import databaseEngineeringImage from '@/assets/images/Fundamentals_Of_Database_Engineering.jpg'
 import projectsData from '@/assets/json/projects.json'
@@ -10,6 +13,31 @@ import { resolveProjectImage } from '@/utils/general'
 import Footer from '@/layouts/Footer/Footer'
 import Header from '@/layouts/Header/Header'
 import './Home.css'
+
+const BASE_URL = 'https://paulson-bosah.vercel.app'
+
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Paulson Bosah',
+  url: BASE_URL,
+  jobTitle: 'Software Developer',
+  description:
+    'Software developer with deep expertise in Python, Django, Golang, and REST API design. ' +
+    'Builds high-performance APIs, scalable server-side systems, and AI-integrated products ' +
+    'for startups and product teams.',
+  knowsAbout: [
+    'Python', 'Django', 'Golang', 'GoFiber', 'PHP', 'Laravel',
+    'REST API Design', 'PostgreSQL', 'MySQL', 'SQLite',
+    'Server-Sent Events', 'WebSockets', 'AI Integration',
+    'Backend Architecture', 'Database Engineering',
+  ],
+  sameAs: [
+    'https://github.com/paulsonlegacy',
+    'https://linkedin.com/in/paulson-bosah',
+    'https://x.com/paulsonlegacy',
+  ],
+}
 
 type Project = {
   title: string
@@ -91,6 +119,16 @@ function Home() {
 
   return (
     <>
+      <PageMeta
+        title="Paulson Bosah | Software Developer — Python, Golang & Django APIs"
+        description={
+          'Paulson Bosah is a software developer who builds high-performance REST APIs, ' +
+          'scalable server-side systems, and AI-integrated products using Python, Django, ' +
+          'Golang, and GoFiber. Open to contracts, collaborations, and full-time roles.'
+        }
+        canonical={BASE_URL}
+        jsonLd={personJsonLd}
+      />
       <Header />
 
       <main>
@@ -103,7 +141,7 @@ function Home() {
               </div>
               <div className="terminal__line">
                 <span className="terminal__output">
-                  Initializing backend developer profile...
+                  Initializing software developer profile...
                 </span>
               </div>
               <div className="terminal__line">
@@ -117,7 +155,7 @@ function Home() {
             </div>
 
             <div className="hero__intro">
-              <h1 className="hero__title">Backend Developer</h1>
+              <h1 className="hero__title">Software Developer</h1>
               <p className="hero__subtitle">
                 I build APIs and reliable server-side systems and backend APIs. I
                 focus on writing clean, maintainable code and solving real problems.
@@ -147,7 +185,7 @@ function Home() {
             </div>
             <div className="about__content">
               <p>
-                I'm a backend developer focusing on building systems that actually
+                I'm a software developer focusing on building systems that actually
                 work. I handle APIs, databases, and server-side logic. My thing is to
                 write code other developers can understand and maintain without
                 stress.
@@ -390,44 +428,12 @@ function Home() {
               </div>
               <div className="contact__form__wrapper">
                 <form className="contact__form" onSubmit={handleSubmit}>
-                  <div className="form__group">
-                    <label className="form__label" htmlFor="name">
-                      name:
-                    </label>
-                    <input
-                      className="form__input"
-                      type="text"
-                      id="name"
-                      name="name"
-                      required
-                    />
-                  </div>
-                  <div className="form__group">
-                    <label className="form__label" htmlFor="email">
-                      email:
-                    </label>
-                    <input
-                      className="form__input"
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                    />
-                  </div>
-                  <div className="form__group">
-                    <label className="form__label" htmlFor="message">
-                      message:
-                    </label>
-                    <textarea
-                      className="form__textarea"
-                      id="message"
-                      name="message"
-                      required
-                    />
-                  </div>
-                  <button className="form__button" type="submit" disabled={isSending}>
+                  <Input inputType="text" label="name:" name="name" required fullWidth className="form__group" />
+                  <Input inputType="email" label="email:" name="email" required fullWidth className="form__group" />
+                  <Input inputType="textarea" label="message:" name="message" required fullWidth className="form__group" />
+                  <Button type="submit" fullWidth variant="primary" outline disabled={isSending}>
                     {isSending ? 'sending...' : 'send_message()'}
-                  </button>
+                  </Button>
                   {formStatus.type !== 'idle' && (
                     <div className={`form__message ${formStatus.type}`}>
                       {formStatus.message}
