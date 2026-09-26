@@ -49,8 +49,13 @@
     border: none;
     color: var(--text-primary);
     cursor: pointer;
-    font-family: 'Ubuntu Mono', monospace;
-    font-size: 0.95rem;
+    line-height: 0;
+    padding: 4px;
+    transition: color 0.2s;
+}
+
+.nav__toggle--open {
+    color: var(--error);
 }
 
 @media (max-width: 768px) {

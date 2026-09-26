@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { LuMenu, LuX } from 'react-icons/lu';
 import './Header.css';
 
 const navLinks = [
@@ -34,13 +35,13 @@ function Header() {
 
         <button
           type="button"
-          className="nav__toggle"
+          className={`nav__toggle${isNavOpen ? ' nav__toggle--open' : ''}`}
           aria-controls="navList"
           aria-expanded={isNavOpen}
           aria-label="Toggle navigation"
           onClick={() => setIsNavOpen((open) => !open)}
         >
-          <span aria-hidden="true">{isNavOpen ? 'x' : 'menu'}</span>
+          {isNavOpen ? <LuX size={22} /> : <LuMenu size={22} />}
         </button>
       </div>
     </header>
