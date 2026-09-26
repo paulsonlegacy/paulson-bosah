@@ -1,0 +1,245 @@
+/* Input Component */
+
+/* ── Wrapper ──────────────────────────────────────────────────────────── */
+
+.input__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: fit-content;
+}
+
+.input__wrapper--full {
+  width: 100%;
+}
+
+/* ── Label position variants ──────────────────────────────────────────── */
+
+.input__wrapper--label-left,
+.input__wrapper--label-right {
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.input__wrapper--label-right {
+  flex-direction: row-reverse;
+}
+
+.input__wrapper--label-bottom {
+  flex-direction: column-reverse;
+}
+
+/* ── Body ─────────────────────────────────────────────────────────────── */
+
+.input__body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.input__wrapper--label-left .input__body,
+.input__wrapper--label-right .input__body {
+  flex: 1;
+}
+
+/* ── Label ────────────────────────────────────────────────────────────── */
+
+.input__label {
+  font-size: 0.9rem;
+  font-family: 'Ubuntu Mono', monospace;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  line-height: 1.4;
+}
+
+.input__required {
+  color: var(--error);
+  font-weight: 700;
+}
+
+/* ── Input Container ──────────────────────────────────────────────────── */
+
+.input__container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* ── Input Field ──────────────────────────────────────────────────────── */
+
+.input__field {
+  width: 100%;
+  padding: 9px 13px;
+  font-size: 0.9rem;
+  font-family: 'Ubuntu Mono', monospace;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: 0;
+  transition: border-color 0.2s;
+  outline: none;
+  box-sizing: border-box;
+  line-height: 1.4;
+}
+
+/* Textarea */
+textarea.input__field {
+  resize: vertical;
+  min-height: 100px;
+  line-height: 1.6;
+}
+
+/* Select */
+select.input__field {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%236e6e6e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 18px;
+  background-color: var(--bg-primary);
+  padding-right: 36px;
+}
+
+/* Placeholder */
+.input__field::placeholder {
+  color: var(--text-dim);
+}
+
+/* Focus */
+.input__field:focus {
+  border-color: var(--accent);
+}
+
+/* Hover */
+.input__field:hover:not(:disabled) {
+  border-color: var(--text-secondary);
+}
+
+/* Disabled */
+.input__field:disabled {
+  background-color: var(--bg-tertiary);
+  color: var(--text-dim);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.input__wrapper--disabled .input__label {
+  color: var(--text-dim);
+}
+
+/* ── Icon padding on field ────────────────────────────────────────────── */
+
+.input__field--icon-left  { padding-left:  38px; }
+.input__field--icon-right { padding-right: 38px; }
+
+/* ── Icons ────────────────────────────────────────────────────────────── */
+
+.input__icon {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dim);
+  pointer-events: none;
+}
+
+.input__icon--left  { left:  10px; }
+.input__icon--right { right: 10px; }
+
+.input__icon--clickable { pointer-events: auto; cursor: pointer; }
+
+/* When icon is rendered as a <button> */
+.input__icon--btn {
+  background: none;
+  border: none;
+  padding: 6px;
+  margin: -6px;
+  color: var(--text-dim);
+  font-size: inherit;
+  line-height: 1;
+  border-radius: 0;
+  transition: color 0.2s;
+  cursor: pointer;
+}
+
+.input__icon--btn:hover {
+  color: var(--accent);
+}
+
+.input__icon--btn:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ── Status icons ─────────────────────────────────────────────────────── */
+
+.input__status-icon {
+  position: absolute;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  pointer-events: none;
+}
+
+.input__status-icon--error   { color: var(--error);   }
+.input__status-icon--success { color: var(--success);  }
+
+/* ── Error state ──────────────────────────────────────────────────────── */
+
+.input__wrapper--error .input__field,
+.input__field--error {
+  border-color: var(--error);
+  background-color: rgba(255, 85, 85, 0.04);
+}
+
+.input__wrapper--error .input__field:focus,
+.input__field--error:focus {
+  border-color: var(--error);
+}
+
+/* ── Success state ────────────────────────────────────────────────────── */
+
+.input__wrapper--success .input__field,
+.input__field--success {
+  border-color: var(--success);
+  background-color: rgba(95, 179, 95, 0.04);
+}
+
+.input__wrapper--success .input__field:focus,
+.input__field--success:focus {
+  border-color: var(--success);
+}
+
+/* ── Messages ─────────────────────────────────────────────────────────── */
+
+.input__message {
+  font-size: 0.8rem;
+  font-family: 'Ubuntu Mono', monospace;
+  line-height: 1.4;
+  margin: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.input__message--error   { color: var(--error);   }
+.input__message--success { color: var(--success);  }
+.input__message--helper  { color: var(--text-dim); font-weight: 400; }
+
+/* ── Responsive ───────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  select.input__field {
+    background-size: 16px;
+  }
+}

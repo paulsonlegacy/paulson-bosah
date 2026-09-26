@@ -1,0 +1,324 @@
+/* Base button styles */
+.btn,
+a.btn,
+button.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-family: 'Ubuntu Mono', monospace;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  border: 2px solid transparent;
+  border-radius: 0;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+}
+
+.btn:active,
+a.btn:active,
+button.btn:active {
+  opacity: 0.85;
+}
+
+/* Button Sizes */
+.btn--inherit { font-size: inherit;  padding: 10px 24px; }
+.btn--xs      { font-size: 11px;     padding: 3px 8px;   }
+.btn--sm      { font-size: 13px;     padding: 6px 12px;  }
+.btn--md      { font-size: 14px;     padding: 8px 16px;  }
+.btn--lg      { font-size: 15px;     padding: 10px 20px; }
+.btn--xl      { font-size: 16px;     padding: 12px 24px; }
+.btn--2xl     { font-size: 18px;     padding: 14px 28px; }
+
+/* Full Width */
+.btn--full { width: 100%; }
+
+/* ── Solid Variants (default, outline=false) ─────────────────── */
+
+.btn--primary,
+a.btn--primary,
+button.btn--primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg-primary);
+}
+
+.btn--primary:hover:not(.btn--disabled):not(.btn--loading),
+a.btn--primary:hover:not(.btn--disabled):not(.btn--loading),
+button.btn--primary:hover:not(.btn--disabled):not(.btn--loading) {
+  background: var(--accent-dim);
+  border-color: var(--accent-dim);
+}
+
+.btn--secondary,
+a.btn--secondary,
+button.btn--secondary {
+  border-color: var(--border);
+  color: var(--text-secondary);
+}
+
+.btn--secondary:hover:not(.btn--disabled):not(.btn--loading),
+a.btn--secondary:hover:not(.btn--disabled):not(.btn--loading),
+button.btn--secondary:hover:not(.btn--disabled):not(.btn--loading) {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--text-secondary);
+}
+
+.btn--info,
+a.btn--info,
+button.btn--info {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg-primary);
+}
+
+.btn--info:hover:not(.btn--disabled):not(.btn--loading),
+a.btn--info:hover:not(.btn--disabled):not(.btn--loading),
+button.btn--info:hover:not(.btn--disabled):not(.btn--loading) {
+  background: var(--accent-dim);
+  border-color: var(--accent-dim);
+}
+
+.btn--success,
+a.btn--success,
+button.btn--success {
+  background: var(--success);
+  border-color: var(--success);
+  color: var(--bg-primary);
+}
+
+.btn--success:hover:not(.btn--disabled):not(.btn--loading),
+a.btn--success:hover:not(.btn--disabled):not(.btn--loading),
+button.btn--success:hover:not(.btn--disabled):not(.btn--loading) {
+  background: #4fa04f;
+  border-color: #4fa04f;
+}
+
+.btn--warning,
+a.btn--warning,
+button.btn--warning {
+  background: #f59e0b;
+  border-color: #f59e0b;
+  color: var(--bg-primary);
+}
+
+.btn--warning:hover:not(.btn--disabled):not(.btn--loading),
+a.btn--warning:hover:not(.btn--disabled):not(.btn--loading),
+button.btn--warning:hover:not(.btn--disabled):not(.btn--loading) {
+  background: #d97706;
+  border-color: #d97706;
+}
+
+.btn--danger,
+.btn--error,
+a.btn--danger,
+a.btn--error,
+button.btn--danger,
+button.btn--error {
+  background: var(--error);
+  border-color: var(--error);
+  color: var(--bg-primary);
+}
+
+.btn--danger:hover:not(.btn--disabled):not(.btn--loading),
+.btn--error:hover:not(.btn--disabled):not(.btn--loading),
+a.btn--danger:hover:not(.btn--disabled):not(.btn--loading),
+a.btn--error:hover:not(.btn--disabled):not(.btn--loading),
+button.btn--danger:hover:not(.btn--disabled):not(.btn--loading),
+button.btn--error:hover:not(.btn--disabled):not(.btn--loading) {
+  background: #dc2626;
+  border-color: #dc2626;
+}
+
+.btn--light,
+a.btn--light,
+button.btn--light {
+  border-color: var(--border);
+  color: var(--text-dim);
+}
+
+.btn--light:hover:not(.btn--disabled):not(.btn--loading),
+a.btn--light:hover:not(.btn--disabled):not(.btn--loading),
+button.btn--light:hover:not(.btn--disabled):not(.btn--loading) {
+  border-color: var(--text-dim);
+  color: var(--text-secondary);
+}
+
+.btn--dark,
+a.btn--dark,
+button.btn--dark {
+  background: var(--bg-tertiary);
+  border-color: var(--border);
+  color: var(--text-primary);
+}
+
+.btn--dark:hover:not(.btn--disabled):not(.btn--loading),
+a.btn--dark:hover:not(.btn--disabled):not(.btn--loading),
+button.btn--dark:hover:not(.btn--disabled):not(.btn--loading) {
+  border-color: var(--text-dim);
+  color: var(--text-primary);
+}
+
+.btn--transparent,
+a.btn--transparent,
+button.btn--transparent {
+  border-color: transparent;
+  color: var(--text-secondary);
+}
+
+.btn--transparent:hover:not(.btn--disabled):not(.btn--loading),
+a.btn--transparent:hover:not(.btn--disabled):not(.btn--loading),
+button.btn--transparent:hover:not(.btn--disabled):not(.btn--loading) {
+  color: var(--text-primary);
+}
+
+/* ── Outline Variants (outline=true — transparent bg, border only) ── */
+
+.btn--outline {
+  background: transparent !important;
+}
+
+.btn--outline.btn--primary,
+a.btn--outline.btn--primary {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.btn--outline.btn--primary:hover:not(.btn--disabled),
+a.btn--outline.btn--primary:hover:not(.btn--disabled) {
+  background: var(--accent) !important;
+  color: var(--bg-primary);
+}
+
+.btn--outline.btn--info,
+a.btn--outline.btn--info {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.btn--outline.btn--info:hover:not(.btn--disabled),
+a.btn--outline.btn--info:hover:not(.btn--disabled) {
+  background: var(--accent) !important;
+  color: var(--bg-primary);
+}
+
+.btn--outline.btn--secondary,
+a.btn--outline.btn--secondary {
+  border-color: var(--border);
+  color: var(--text-secondary);
+}
+
+.btn--outline.btn--secondary:hover:not(.btn--disabled),
+a.btn--outline.btn--secondary:hover:not(.btn--disabled) {
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary);
+  border-color: var(--text-secondary);
+}
+
+.btn--outline.btn--success,
+a.btn--outline.btn--success {
+  border-color: var(--success);
+  color: var(--success);
+}
+
+.btn--outline.btn--success:hover:not(.btn--disabled),
+a.btn--outline.btn--success:hover:not(.btn--disabled) {
+  background: var(--success) !important;
+  color: var(--bg-primary);
+}
+
+.btn--outline.btn--warning,
+a.btn--outline.btn--warning {
+  border-color: #f59e0b;
+  color: #f59e0b;
+}
+
+.btn--outline.btn--warning:hover:not(.btn--disabled),
+a.btn--outline.btn--warning:hover:not(.btn--disabled) {
+  background: #f59e0b !important;
+  color: var(--bg-primary);
+}
+
+.btn--outline.btn--danger,
+.btn--outline.btn--error,
+a.btn--outline.btn--danger,
+a.btn--outline.btn--error {
+  border-color: var(--error);
+  color: var(--error);
+}
+
+.btn--outline.btn--danger:hover:not(.btn--disabled),
+.btn--outline.btn--error:hover:not(.btn--disabled),
+a.btn--outline.btn--danger:hover:not(.btn--disabled),
+a.btn--outline.btn--error:hover:not(.btn--disabled) {
+  background: var(--error) !important;
+  color: var(--bg-primary);
+}
+
+/* ── Disabled State ───────────────────────────────────────────── */
+
+.btn--disabled,
+a.btn--disabled,
+button.btn--disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ── Loading State ────────────────────────────────────────────── */
+
+.btn--loading,
+a.btn--loading,
+button.btn--loading {
+  cursor: wait;
+  pointer-events: none;
+}
+
+/* Icon Spacing */
+.btn__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn__icon--left  { margin-right: -2px; }
+.btn__icon--right { margin-left: -2px;  }
+
+/* Loading Spinner */
+.btn--loading .btn__text {
+  visibility: hidden;
+}
+
+.btn__spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: btn-spin 0.6s linear infinite;
+}
+
+.btn--loading .btn__spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -7px 0 0 -7px;
+}
+
+@keyframes btn-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 48rem) {
+  .btn--lg  { font-size: 14px; padding: 8px 16px;  }
+  .btn--xl  { font-size: 15px; padding: 10px 20px; }
+  .btn--2xl { font-size: 16px; padding: 12px 24px; }
+}

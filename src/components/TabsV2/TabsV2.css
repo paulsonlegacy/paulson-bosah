@@ -1,0 +1,109 @@
+/* TabsV2 — vertical sidebar navigation layout
+   Desktop: two-column grid (sidebar left, content right).
+   Mobile:  sidebar collapses to a horizontal scrollable strip. */
+
+/* ── Outer container ───────────────────────────────────────────── */
+.tabs-v2 {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  border: 1px solid var(--border);
+  border-radius: 0;
+  overflow: hidden;
+  background: var(--bg-secondary);
+}
+
+/* ── Sidebar nav ───────────────────────────────────────────────── */
+.tabs-v2__nav {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-tertiary);
+  border-right: 1px solid var(--border);
+}
+
+/* ── Nav item ──────────────────────────────────────────────────── */
+.tabs-v2__tab {
+  display: block;
+  width: 100%;
+  padding: 12px 16px;
+  text-align: left;
+  background: none;
+  border: none;
+  border-left: 3px solid transparent;
+  cursor: pointer;
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  line-height: 1.5;
+}
+
+.tabs-v2__tab:not(:last-child) {
+  border-bottom: 1px solid var(--border);
+}
+
+.tabs-v2__tab:hover {
+  color: var(--text-primary);
+  background: rgba(58, 58, 58, 0.4);
+}
+
+.tabs-v2__tab--active {
+  color: var(--accent);
+  font-weight: 700;
+  border-left-color: var(--accent);
+  background: rgba(74, 158, 255, 0.06);
+}
+
+.tabs-v2__tab--active:hover {
+  background: rgba(74, 158, 255, 0.1);
+}
+
+/* ── Content area ──────────────────────────────────────────────── */
+.tabs-v2__content {
+  min-width: 0;
+  background: var(--bg-secondary);
+  padding: 24px;
+}
+
+/* ── Mobile — horizontal scrollable strip ──────────────────────── */
+@media (max-width: 800px) {
+  .tabs-v2 {
+    grid-template-columns: 1fr;
+    border-left: none;
+    border-right: none;
+  }
+
+  .tabs-v2__nav {
+    flex-direction: row;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+    scrollbar-width: none;
+    background: none;
+  }
+
+  .tabs-v2__nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tabs-v2__tab {
+    flex-shrink: 0;
+    width: auto;
+    border-left: none;
+    border-bottom: 2px solid transparent;
+    border-right: none;
+    margin-bottom: -1px;
+    padding: 8px 16px;
+    white-space: nowrap;
+  }
+
+  .tabs-v2__tab:not(:last-child) {
+    border-bottom: 2px solid transparent;
+    border-right: 1px solid var(--border);
+  }
+
+  .tabs-v2__tab--active {
+    border-left-color: transparent;
+    border-bottom-color: var(--accent);
+  }
+}

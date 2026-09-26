@@ -1,0 +1,445 @@
+/* Modal form layout utilities */
+
+.bh__modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.bh__modal-sub {
+  font-size: 0.875rem;
+  font-family: 'Ubuntu Mono', monospace;
+  color: var(--text-secondary);
+}
+
+.bh__modal-sub--warning {
+  color: #f59e0b;
+}
+
+.bh__modal-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.bh__modal-info {
+  font-size: 0.875rem;
+  font-family: 'Ubuntu Mono', monospace;
+  color: var(--text-secondary);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: 0;
+  padding: 0.5rem 1rem;
+}
+
+.bh__modal-error {
+  background: rgba(255, 85, 85, 0.08);
+  color: var(--error);
+  border: 1px solid var(--error);
+  border-radius: 0;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-family: 'Ubuntu Mono', monospace;
+}
+
+.bh__modal-warning {
+  background: rgba(245, 158, 11, 0.08);
+  color: #f59e0b;
+  border: 1px solid #f59e0b;
+  border-radius: 0;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-family: 'Ubuntu Mono', monospace;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.bh__modal-force-label {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  cursor: pointer;
+  margin-top: 0.25rem;
+  font-weight: 500;
+}
+
+.bh__modal-warning-note {
+  margin: 0.25rem 0 0 0;
+  font-size: 0.75rem;
+  opacity: 0.85;
+}
+
+.bh__modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+/* ── Customer lookup ───────────────────────────────────────────── */
+
+.bh__lookup {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.bh__banner {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-family: 'Ubuntu Mono', monospace;
+}
+
+.bh__banner--success {
+  background: rgba(95, 179, 95, 0.08);
+  color: var(--success);
+  border: 1px solid var(--success);
+}
+
+.bh__banner--info {
+  background: rgba(74, 158, 255, 0.08);
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+.bh__banner--warning {
+  background: rgba(245, 158, 11, 0.08);
+  color: #f59e0b;
+  border: 1px solid #f59e0b;
+}
+
+.bh__picker {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.bh__picker-item {
+  text-align: left;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  font-family: 'Ubuntu Mono', monospace;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.bh__picker-item:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--text-dim);
+}
+
+/* ── Print receipt ─────────────────────────────────────────────── */
+
+.bh__receipt {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 0;
+}
+
+.bh__receipt__hotel {
+  text-align: center;
+}
+
+.bh__receipt__hotel-logo {
+  display: block;
+  max-height: 4.8rem;
+  margin: 0 auto 0.25rem;
+}
+
+.bh__receipt__hotel-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-family: 'Ubuntu Mono', monospace;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.bh__receipt__hotel-address {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin: 0.2rem 0 0;
+}
+
+.bh__receipt__title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-align: center;
+  margin: 0;
+  font-family: 'Ubuntu Mono', monospace;
+}
+
+.bh__receipt__code {
+  text-align: center;
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 1.1rem;
+  color: var(--accent);
+}
+
+.bh__customer-balance {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  font-weight: 500;
+  font-family: 'Ubuntu Mono', monospace;
+}
+
+.bh__receipt__divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0.5rem 0;
+}
+
+.bh__receipt__row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  font-family: 'Ubuntu Mono', monospace;
+  color: var(--text-secondary);
+}
+
+.bh__receipt__row--summary {
+  font-weight: 600;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-primary);
+}
+
+.bh__receipt__total-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-family: 'Ubuntu Mono', monospace;
+  color: var(--text-primary);
+}
+
+.bh__receipt__total-row--due {
+  color: var(--error);
+}
+
+.bh__receipt__footer-note {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  margin-top: 0.25rem;
+  font-family: 'Ubuntu Mono', monospace;
+}
+
+/* ── PIN reveal panel ────────────────────────────────────────────── */
+
+.bh__pin-reveal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  text-align: center;
+}
+
+.bh__pin-reveal__label {
+  font-size: 0.875rem;
+  font-family: 'Ubuntu Mono', monospace;
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.bh__pin-reveal__code {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  font-family: 'Ubuntu Mono', monospace;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent);
+}
+
+.bh__pin-reveal__warning {
+  font-size: 0.875rem;
+  font-family: 'Ubuntu Mono', monospace;
+  color: #f59e0b;
+}
+
+.bh__pin-reveal__copy {
+  margin-top: 0.25rem;
+  padding: 0.25rem 1rem;
+  background: none;
+  border: 1px solid var(--border);
+  font-size: 0.875rem;
+  font-family: 'Ubuntu Mono', monospace;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.bh__pin-reveal__copy:hover {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+/* ── Lock card success panel ──────────────────────────────────── */
+
+.bh__lock-success {
+  padding: 1rem;
+  background: rgba(95, 179, 95, 0.08);
+  border: 1px solid var(--success);
+  color: var(--success);
+  font-size: 0.875rem;
+  font-family: 'Ubuntu Mono', monospace;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* ── Lock error panel ─────────────────────────────────────────── */
+
+.bh__lock-error {
+  padding: 1rem;
+  background: rgba(255, 85, 85, 0.08);
+  border: 1px solid var(--error);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* ── Guest radio list ─────────────────────────────────────────── */
+
+.bh__guest-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin: 0.5rem 0;
+}
+
+.bh__guest-list__item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  background: var(--bg-secondary);
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.bh__guest-list__item--selected {
+  border-color: var(--accent);
+  background: rgba(74, 158, 255, 0.06);
+}
+
+.bh__guest-list__item input[type="radio"] {
+  accent-color: var(--accent);
+  flex-shrink: 0;
+}
+
+.bh__guest-list__item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex: 1;
+}
+
+.bh__guest-list__item-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-family: 'Ubuntu Mono', monospace;
+  color: var(--text-primary);
+}
+
+.bh__guest-list__item-phone {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-family: 'Ubuntu Mono', monospace;
+}
+
+.bh__guest-list__add-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: none;
+  border: 1px dashed var(--text-dim);
+  padding: 0.25rem 1rem;
+  font-size: 0.875rem;
+  font-family: 'Ubuntu Mono', monospace;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.bh__guest-list__add-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.bh__lock-error__label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: 'Ubuntu Mono', monospace;
+  color: var(--error);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.bh__lock-error__text {
+  font-size: 0.875rem;
+  color: var(--error);
+  word-break: break-word;
+  font-family: 'Ubuntu Mono', monospace;
+}
+
+/* ── Voucher code display ──────────────────────────────────────── */
+
+.bh__voucher-code {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  padding: 0.5rem 1rem;
+}
+
+.bh__voucher-code__text {
+  flex: 1;
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--text-primary);
+}
+
+@media print {
+  body * {
+    visibility: hidden !important;
+  }
+  #bh-print-area,
+  #bh-print-area * {
+    visibility: visible !important;
+  }
+  #bh-print-area {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    padding: 3.2rem;
+    background: #fff;
+    color: #000;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  #bh-print-area .bh__modal-footer {
+    display: none !important;
+  }
+}
